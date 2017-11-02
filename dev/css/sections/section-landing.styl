@@ -1,0 +1,78 @@
+.landing
+  &-background // mountain transition
+    width 100%
+    position absolute
+    top 0
+    left 0
+    bottom 0
+    &::after, &::before
+      content ""
+      position absolute
+      z-index 10
+      width 100%
+    &::before // white effect
+      height 100%
+      background rgba($primary-color, 30%)
+     &::after // white transition
+      bottom 0
+      height 30vh
+      background linear-gradient(0deg, rgba($white, 100%) 0%, rgba($white, 0%) 100%)
+    &-img
+      position absolute
+      width 100%
+      height 100%
+      display flex
+      overflow hidden
+      justify-content center
+      align-items center
+      img
+        // flex-shrink 0
+        width 100%
+        min-width 1000px
+        height auto
+        margin auto
+        margin-bottom 0
+  &-title
+    width 100%
+    height 100%
+    position absolute
+    z-index 20
+    display flex
+    justify-content center
+    align-items center
+    overflow hidden
+    user-select none
+    cursor default
+    h1
+      font-size(55px)
+      font-family $font-title
+      color $grey
+      position relative
+      z-index 20
+      @media (min-width $tablet)
+        font-size(65px)
+      @media (min-width $laptop)
+        font-size(10vw)
+      &::before
+        content "Backland"
+        position absolute
+        z-index -1
+        top 10%
+        left -10%
+        font-size(70px)
+        color rgba($black, 20%)
+        mix-blend-mode overlay
+        @media (min-width $tablet)
+          font-size(80px)
+        @media (min-width $laptop)
+          top -5%
+          font-size(14vw)
+      &::after
+        content ""
+        position absolute
+        z-index -1
+        left 15%
+        bottom 0
+        width 50%
+        height 5px
+        background $grey
