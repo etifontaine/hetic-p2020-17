@@ -11,4 +11,4 @@ import Rellax from 'rellax'
 
 new Header(document.querySelector('.header'))
 
-let rellax = new Rellax('.rellax');
+new Rellax('.rellax')
