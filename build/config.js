@@ -6,7 +6,7 @@ module.exports = {
   },
   port: 3000,
   html: true,
-  assets_url: '/', // Urls dans le fichier final
+  assets_url: '/assets', // Urls dans le fichier final
   stylelint: './dev/css/**/*.styl',
   assets_path: path.dirname(__dirname) + '/dist/', // ou build ?
   refresh: ['./index.html'], // Permet de forcer le rafraichissement du navigateur lors de la modification de ces fichiers
