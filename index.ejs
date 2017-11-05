@@ -106,8 +106,9 @@
                     <p class="select-title">Taille de ski</p>
                     <div class="select-content">
                         <% for(var i = 150; i < 190; i+= 10) { %>
-                        <div class="select-value" data-value="<%= [i] %>"><%= [i] %> cm</div>
-                        <% } %>
+                            <div class="select-value" data-value="<%= [i] %>">
+                                <%= [i] %> cm</div>
+                            <% } %>
                     </div>
                 </div>
             </div>
@@ -131,9 +132,10 @@
         </div>
     </div>
 </div>
+
 <body>
-<!-- inject:js -->
-<!-- endinject -->
+    <!-- inject:js -->
+    <!-- endinject -->
 </body>
 
 </html>
