@@ -1,0 +1,115 @@
+.section-creation
+  height 100vh
+  padding-top 6vh
+  position relative
+  .background
+    background-color $blue-light
+    position: absolute
+    width: 60vw
+    height: 70px
+    top: 80vh
+    z-index: -1
+    opacity .4
+  .content
+    display flex
+    &-left
+      height: 70vh
+      width: 40vw
+      position relative
+      transition .3s $cubic all
+      .visible
+        z-index 2
+        visibility visible
+      &-ski
+        background-repeat: no-repeat
+        background-size: contain
+        background-position center
+        width: 100%
+        position: absolute
+        &__planche
+          height: 100%
+          visibility hidden
+        &__fixation
+          height: 160px
+          z-index 2
+          top: 30%
+          transform: translateX(-500px)
+          transition .4s $cubic all
+    &-right
+      width 60vw
+      margin-top: 40px
+      p
+        margin: 0
+      .right-title
+        p
+          color #000000
+          font-size(18px)
+          font-weight bold
+          margin-bottom: 10px
+      .select
+        margin-right: 10px
+        margin-bottom: 20px
+        position relative
+        &-content
+          border-right: 2px solid
+          border-left: 2px solid
+          border-bottom: 2px solid
+          border-color: #ccc
+          background-color #ffffff
+          width: 164px
+          position absolute
+          div
+            height 40px
+            padding-left: 20px
+            line-height: 40px
+        &-title
+          color $grey-light
+          border 2px solid $grey-light
+          line-height: 37px
+          height: 40px
+          padding-left: 20px
+          margin-bottom: 0
+          width: 164px
+          background-image url('/assets/img/arrow.svg')
+          background-size: 10%
+          background-repeat: no-repeat
+          background-position: center right
+          background-origin: content-box
+          padding-right: 10px
+      .fixations
+        &-name
+          color $grey-light
+          font-size(16px)
+          margin-bottom: 10px
+        &-select
+          display: flex
+          justify-content space-between
+          margin-right: 10px
+          .fixation
+            background-position center
+            background-size contain
+            background-repeat no-repeat
+            background-origin: content-box
+            width: 10vh
+            height: 15vh
+            border: 1px solid $grey-light
+            padding: 5px
+          .active
+            box-shadow: 0 2px 4px 1px rgba(186,186,186,0.5)
+      .price
+        margin-top: 40px
+        height: 40px
+        display flex
+        &-text
+          color $blue-sky
+          width: 100px
+          border: 2px solid $blue-sky
+          border-right 0
+          line-height: 38px
+          text-align: center
+        &-btn
+          width 64px
+          color #ffffff
+          background-color #DC394A
+          border-radius 0
+          border 2px solid #DC394A

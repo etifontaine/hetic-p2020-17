@@ -1,5 +1,8 @@
 import Header from './Classes/Header'
+import Creation from './Classes/Creation'
 import Rellax from 'rellax'
+
+require('smoothscroll-polyfill').polyfill()
 
 /* class Init {
   constructor () {
@@ -12,3 +15,5 @@ import Rellax from 'rellax'
 new Header(document.querySelector('.header'))
 
 new Rellax('.rellax')
+
+new Creation()

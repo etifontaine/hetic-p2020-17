@@ -13,7 +13,7 @@ let webpackBase = {
     publicPath: config.assets_url
   },
   resolve: {
-    extensions: ['.js', '.css', '.json', '.jpg'],
+    extensions: ['.js', '.css', '.json'],
     alias: {
       root: path.join(__dirname, '../js'),
       components: path.join(__dirname, '../js/Classes'),
@@ -56,6 +56,18 @@ let webpackBase = {
             name: '[name].[hash:7].[ext]'
           }
         }]
+      },
+      {
+        test: /\.(gif|png|jpe?g|svg)$/i,
+        use: [
+          'file-loader',
+          {
+            loader: 'image-webpack-loader',
+            options: {
+              bypassOnDebug: true,
+            },
+          },
+        ],
       },
       {
         test: /\.ejs$/,
