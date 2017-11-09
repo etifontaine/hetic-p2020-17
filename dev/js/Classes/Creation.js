@@ -9,17 +9,32 @@ export default class Creation {
     this.fixations = document.querySelectorAll('.fixation')
     this.skiPlanches = document.querySelectorAll('.content-left-ski__planche')
     this.fixationValue = document.querySelector('.fixations-name-value')
+    this.priceText = document.querySelector('.price-text')
     this.sizeList.style.display = 'none'
+    this.activeBending = 'null'
     this.scale = {
       '150': '.8',
       '160': '.9',
       '170': '1.05',
       '180': '1.1'
     }
+    this.prices = {
+      init: 699,
+      bendings: {
+        'null': 0,
+        'sth': 279,
+        'th': 379,
+      }
+    }
     this.toggleSizeList()
     this.selectSize()
     this.selectBinding()
     this.reverseSki()
+    this.setPrice()
+  }
+  setPrice () {
+    const price = this.prices.init + this.prices.bendings[this.activeBending]
+    this.priceText.innerText = `${price} €`
   }
   reverseSki () {
     ['touch', 'click'].forEach(e => this.skiContainer.addEventListener(e, () => {
@@ -27,7 +42,7 @@ export default class Creation {
         ski.classList.contains('visible') ? ski.classList.remove('visible') : ski.classList.add('visible')
         if (this.skiPlanches[1].style.zIndex === '1') {
           this.skiFixation.forEach(e => {
-            e.style.transform = 'translateX(-500px)'
+            e.style.transform = 'translateX(-800px)'
           })
         }
       })
@@ -48,9 +63,13 @@ export default class Creation {
           e.target.classList.add('active')
           this.fixationValue.innerText = e.target.dataset.name
           this.skiFixation.forEach((s) => {
-            s.style.transform = 'translateX(-500px)'
+            s.style.transform = 'translateX(-800px)'
           })
-          this.skiFixation[e.target.dataset.index].style.transform = this.skiFixation[e.target.dataset.index] ? 'translateX(0px)' : ''
+          if (this.skiFixation[e.target.dataset.index]) {
+            this.skiFixation[e.target.dataset.index].style.transform = 'translateX(0px)'
+          }
+          this.activeBending = e.target.dataset.shortcode
+          this.setPrice()
         }
       })
     })

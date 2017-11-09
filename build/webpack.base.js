@@ -1,5 +1,4 @@
 const path = require('path')
-const CopyWebpackPlugin = require('copy-webpack-plugin')
 const webpack = require('webpack')
 const config = require('./config')
 const ExtractCSSPlugin = require('./extractCSSPlugin')
@@ -77,9 +76,6 @@ let webpackBase = {
     ]
   },
   plugins: [
-    new CopyWebpackPlugin([
-      { from: './assets', to: './assets' },
-    ]),
     new BrowserSyncPlugin({
       proxy: 'localhost:3000',
       notify: false
