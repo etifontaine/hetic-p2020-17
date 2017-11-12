@@ -10,6 +10,10 @@ import Rellax from 'rellax'
 
 // const app = new Init()
 
+window.addEventListener('touchstart', function () {
+  window.IS_TOUCHSCREEN = true
+})
+
 new Header(document.querySelector('.header'))
 
 let rellax = new Rellax('.rellax')
