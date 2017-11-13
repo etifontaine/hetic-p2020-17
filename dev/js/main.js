@@ -1,6 +1,9 @@
 import Landing from './Classes/Landing'
 import Header from './Classes/Header'
 import Rellax from 'rellax'
+import SmoothScroll from 'smoothscroll-polyfill'
+
+window.__forceSmoothScrollPolyfill__ = true
 
 /* class Init {
   constructor () {

@@ -23,7 +23,7 @@
     transform translateY(-130%)
   @media (min-width $laptop)
     transform translateY(30%)
-  &-toggle
+  &__toggle
     width 80px
     height 80px
     display flex
@@ -48,7 +48,7 @@
         transform translateY(7px)
     @media (min-width $laptop)
       display none
-  &-logo
+  &__logo
     width 200px
     height 80px
     display flex
@@ -60,7 +60,7 @@
         transition fill .2s $cubic
     @media (min-width $laptop)
       margin-left 10vw
-  &-nav
+  &__nav
     position absolute
     z-index -1
     top -10vmax
@@ -132,7 +132,7 @@
             &:active
               background none 
               color $black
-            &.active
+            &.header__item--active
               &::after
                 transform scaleX(1)
 

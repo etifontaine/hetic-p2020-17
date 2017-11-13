@@ -9,7 +9,8 @@
   },
   "license": "MIT",
   "dependencies": {
-    "rellax": "^1.3.0"
+    "rellax": "^1.3.0",
+    "smoothscroll-polyfill": "^0.4.0"
   },
   "devDependencies": {
     "assets-webpack-plugin": "^3.5.0",
