@@ -12,11 +12,8 @@ class Header {
         this.items[this.current_section].classList.remove('header__item--active')
         this.current_section = index
         this.items[this.current_section].classList.add('header__item--active')
-        this.sections[this.current_section].scrollIntoView({
-          behavior: 'smooth'
-        })
       })
-    });
+    })
 
     this.btn_toggle.addEventListener('click', () => {
       this.toggle()

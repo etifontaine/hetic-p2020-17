@@ -1,9 +1,8 @@
 .landing
-  background $white !important
   &__background // mountain transition
     width 100%
+    height 100%
     position absolute
-    top 0
     left 0
     bottom 0
     overflow hidden
@@ -14,60 +13,53 @@
       width 100%
     &::before // white effect
       height 100%
-      background rgba($primary-color, 30%)
+      background rgba($primary-color, 25%)
     &::after // white transition
       bottom 0
       height 30vh
-      background linear-gradient(0deg, rgba($white, 100%) 0%, rgba($white, 0%) 100%)
+      background linear-gradient(0deg, rgba($white, 100%) 1%, rgba($white, 0%) 100%)
     &-img
       position absolute
-      width 100%
-      height 100%
+      width 100vw
+      height 100vh
       display flex
       overflow hidden
       align-items center
       justify-content center
       overflow hidden
-      &:nth-child(1)
-        img        
-          width calc(100% + 40px)
-      &:nth-child(2) 
-        img
-          width calc(100% + 30px)        
-      &:nth-child(3)
-        img
-          width calc(100% + 20px)
-      &:nth-child(4)
-        img
-          width calc(100% + 10px)
       img
         width 100%
         height auto
         margin auto
         margin-bottom 0
         transform-origin 50% 50%
-        will-change transform
         min-width 1000px
         @media (min-width $tablet)
           min-width inherit
+      &:nth-child(1) img        
+        width calc(100% + 80px)
+      &:nth-child(2) img
+        width calc(100% + 80px)        
+      &:nth-child(3) img
+        width calc(100% + 80px)
+      &:nth-child(4) img
+        width calc(100% + 80px)
   &__title
     width 100%
     height 100%
     position absolute
+    top 0
+    left 0
     z-index 20
     display flex
-    flex-direction column
     justify-content center
     align-items center
     overflow hidden
     user-select none
     cursor default
-    will-change transform
     &-text, &-shadow
-      margin auto    
-      position absolute
-    &-text
-      z-index 20    
+      margin auto
+    &-text  
       font-size(55px)
       font-family $font-title
       color $grey
@@ -87,10 +79,3 @@
         font-size(80px)
       @media (min-width $laptop)
         font-size(14vw)
-    &-bar
-      position absolute
-      z-index -1
-      width 100px
-      height 5px
-      margin-top 10%
-      background $grey
