@@ -36,14 +36,20 @@
         min-width 1000px
         @media (min-width $tablet)
           min-width inherit
-      &:nth-child(1) img        
-        width calc(100% + 80px)
-      &:nth-child(2) img
-        width calc(100% + 80px)        
-      &:nth-child(3) img
-        width calc(100% + 80px)
-      &:nth-child(4) img
-        width calc(100% + 80px)
+      &:nth-child(1)
+        img        
+          width calc(100% + 80px)        
+      &:nth-child(2)
+        img
+          width calc(100% + 80px)        
+      &:nth-child(3)
+        z-index 9        
+        img
+          width calc(100% + 80px)
+      &:nth-child(4)
+        z-index 9
+        img
+          width calc(100% + 80px)
   &__title
     width 100%
     height 100%
@@ -52,30 +58,84 @@
     left 0
     z-index 20
     display flex
+    flex-direction column
     justify-content center
     align-items center
     overflow hidden
     user-select none
     cursor default
+    margin 0
+    &__behind
+      z-index 8
     &-text, &-shadow
-      margin auto
+      margin 0      
     &-text  
-      font-size(55px)
       font-family $font-title
-      color $grey
+      color $black
+      font-size(55px)      
       @media (min-width $tablet)
         font-size(65px)
       @media (min-width $laptop)
         font-size(10vw)
     &-shadow
-      z-index -1
-      font-size(70px)
       font-weight bold
-      color rgba($black, 20%)
+      color rgba($black, 30%)
       mix-blend-mode overlay
-      padding-left 5% 
-      padding-top 5% 
+      padding-bottom 30vh
+      font-size(70px)
       @media (min-width $tablet)
         font-size(80px)
+        padding-bottom 22vh        
       @media (min-width $laptop)
         font-size(14vw)
+        padding-bottom 20vh          
+    &-description
+      font-size(17px)
+      font-weight 600
+      line-height 1.5
+      width 100%
+      padding 10px 10vw
+      margin 0
+      color $black
+      text-align center
+      @media (min-width $laptop)      
+        width 60vw
+  &__next
+    width 100vw
+    height 100vw
+    background $white
+    position absolute
+    z-index 50
+    bottom -70vw
+    left 0
+    border-radius 50%
+    overflow hidden
+    span
+      display flex
+      width 100%
+      height 100%
+    @media (min-width: $tablet)
+      width 60vw
+      height 60vw
+      bottom -45vw
+      left 20vw
+    @media (min-width: $laptop)
+      width 40vw
+      height 40vw
+      bottom -35vw
+      left 30vw
+      transition transform .4s $cubic
+      &:hover
+        transform scale(1.1)
+        .landing__next__icon
+          transform scale(0.9) translateY(45px) rotate(90deg)
+    &__icon
+      width 30px
+      height 30px
+      margin auto
+      margin-top 20px  
+      transform rotate(90deg)      
+      transition transform .4s $cubic      
+      path
+        fill $primary-color-darker
+

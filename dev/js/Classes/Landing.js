@@ -38,7 +38,7 @@ class Landing {
       let obj = {
         cx: 0,
         cy: 0,
-        speed: (this.el_mountains.length - index) / this.el_mountains.length,
+        speed: (this.el_mountains.length - index + 1) / this.el_mountains.length,
         delta: ((this.el_mountains.length - index) / this.el_mountains.length) * 40,
         el: mountain
       }
@@ -79,7 +79,6 @@ class Landing {
       mountain.el.style.transform = `translateX(${mountain.cx}px) translateY(${mountain.cy}px)`
     })
 
-    // console.log('hello')
     window.requestAnimationFrame(this.mountainDraw.bind(this))
   }
 }
