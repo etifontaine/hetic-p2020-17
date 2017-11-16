@@ -15,8 +15,18 @@ class Header {
     this.items.forEach((button, index) => {
       button.addEventListener('click', () => {
         this.items[this.current_section].classList.remove('header__item--active')
+        this.sections[this.current_section].classList.remove('section--fade-in')
+        this.sections[this.current_section].classList.add('section--fade-out')
+
+        /**
+         * update index
+         */
         this.current_section = index
+
+        this.sections[this.current_section].classList.remove('section--fade-out')
+        this.sections[this.current_section].classList.add('section--fade-in')
         this.items[this.current_section].classList.add('header__item--active')
+        this.container.style.transform = `translateY(-${(this.current_section * 100)}vh)`
       })
     })
 
@@ -25,9 +35,18 @@ class Header {
      */
     this.items_next.forEach((button) => {
       button.addEventListener('click', () => {
-        this.items[this.current_section].classList.remove('header__item--active')        
+        this.items[this.current_section].classList.remove('header__item--active')
+        this.sections[this.current_section].classList.remove('section--fade-in')
+        this.sections[this.current_section].classList.add('section--fade-out')
+
+        /**
+         * increment index
+         */
         this.current_section++
-        this.items[this.current_section].classList.add('header__item--active')                
+
+        this.sections[this.current_section].classList.remove('section--fade-out')
+        this.sections[this.current_section].classList.add('section--fade-in')
+        this.items[this.current_section].classList.add('header__item--active')
         this.container.style.transform = `translateY(-${(this.current_section * 100)}vh)`
       })
     })

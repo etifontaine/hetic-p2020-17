@@ -17,12 +17,6 @@ class Landing {
     this.next = this.container.querySelector('.next__button')
 
     /**
-     * trigger transition fade-out on button next blick
-     */
-    this.next.addEventListener('click', () => {
-      this.container.classList.add('landing--fade-out')
-    })
-    /**
      * mouse object, contain:
      * - position x
      * - position y

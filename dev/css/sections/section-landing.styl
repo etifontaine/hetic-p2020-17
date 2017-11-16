@@ -1,6 +1,4 @@
 .landing
-  position relative
-  overflow hidden
   &::after, &::before
     content ""
     position absolute
@@ -141,7 +139,7 @@
       path
         fill $primary-color-darker
 
-  &--fade-out
+  &.section--fade-out
     .landing__background
       transition transform 1s ease
       transform translateY(100%)
