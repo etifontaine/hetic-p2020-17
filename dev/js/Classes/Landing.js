@@ -6,16 +6,22 @@
 class Landing {
   constructor () {
     console.log('init landing--')
-    this.container = document.querySelector('.section-landing')
+    this.container = document.querySelector('.landing')
 
-    this.title = document.querySelector('.landing__title-text')
-    this.title_shadow = document.querySelector('.landing__title-shadow')
+    this.title = this.container.querySelector('.landing__title-text')
+    this.title_shadow = this.container.querySelector('.landing__title-shadow')
 
     this.width = window.innerWidth
     this.height = window.innerHeight
-    // this.delta = 300
-    this.ease = 0.08
 
+    this.next = this.container.querySelector('.next__button')
+
+    /**
+     * trigger transition fade-out on button next blick
+     */
+    this.next.addEventListener('click', () => {
+      this.container.classList.add('landing--fade-out')
+    })
     /**
      * mouse object, contain:
      * - position x
@@ -25,6 +31,7 @@ class Landing {
       x: 0,
       y: 0
     }
+    this.ease = 0.08
 
     /**
      * Create mountain object for each layer, contain:

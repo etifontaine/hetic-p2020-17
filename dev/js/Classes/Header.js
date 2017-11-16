@@ -2,6 +2,7 @@ class Header {
   constructor (header) {
     console.log('init header')    
     this.header = header
+    this.container = document.querySelector('.container')
     this.items = this.header.querySelectorAll('.header__item')
     this.items_next = document.querySelectorAll('.next__button')
     this.sections = document.querySelectorAll('.section')
@@ -22,14 +23,17 @@ class Header {
     /**
      * change section on next buttons click
      */
-    this.items_next.forEach((button, index) => {
+    this.items_next.forEach((button) => {
       button.addEventListener('click', () => {
-        console.log(index)
+        this.items[this.current_section].classList.remove('header__item--active')        
+        this.current_section++
+        this.items[this.current_section].classList.add('header__item--active')                
+        this.container.style.transform = `translateY(-${(this.current_section * 100)}vh)`
       })
     })
 
     /**
-     * toggle menu visibilty on mobile
+     * call toggleVisibilty on button toggle click
      */
     this.btn_toggle.addEventListener('click', () => {
       this.toggleVisibility()
@@ -46,6 +50,10 @@ class Header {
       }
     })
   }
+
+  /**
+   * toggle nav visibilty on mobile device
+   */
   toggleVisibility () {
     this.header.classList.toggle('header--show')
   }
