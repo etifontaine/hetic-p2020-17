@@ -8,14 +8,34 @@
     width 100%
     height 100%
     transform-origin 50% 100%
+    transition transform .5s .0s $cubic
   &::before
-    transition transform .5s .75s ease-in-out
     background $primary-color-darker
   &::after
-    transition transform .5s .75s ease-in-out
     background $white
+
+  &__background
+    background red
+    width 100%
+    height 100%
+    display flex
+    justify-content center
+    align-items center
+    img
+      height 100%
+      margin-left 30%
+      transition transform .5s 1.65s $cubic
+      @media (min-width $tablet)
+        margin-left 0%        
+  
   &.section--fade-in
     &::before
+      transition transform .5s .65s $cubic
       transform translateY(100%)
     &::after
+      transition transform .5s .65s $cubic
       transform translateY(150%)
+    .ski__background
+      img
+        transition transform .75s .6s $cubic      
+        transform scale(1.1)
