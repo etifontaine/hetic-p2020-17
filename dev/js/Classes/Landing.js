@@ -5,7 +5,7 @@
  */
 class Landing {
   constructor () {
-    console.log('init landing--')
+    console.log('--init landing')
     this.container = document.querySelector('.landing')
 
     this.title = this.container.querySelector('.landing__title-text')
