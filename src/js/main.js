@@ -9,9 +9,7 @@ window.addEventListener('touchstart', function () {
 })
 
 new Router()
-
 new Header(document.querySelector('.header'))
-
-let rellax = new Rellax('.rellax')
+new Rellax('.rellax')
 new Creation()
 new Landing()

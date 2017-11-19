@@ -23,7 +23,7 @@ export default class Creation {
       bendings: {
         'null': 0,
         'sth': 279,
-        'th': 379,
+        'th': 379
       }
     }
     this.toggleSizeList()

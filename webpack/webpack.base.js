@@ -3,25 +3,44 @@ const webpack = require('webpack')
 const config = require('./config')
 const ExtractCSSPlugin = require('./extractCSSPlugin')
 const BrowserSyncPlugin = require('browser-sync-webpack-plugin')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const libPath = path.join(__dirname, '../src')
+const pkg = require('../package.json')
 
 let webpackBase = {
   devtool: config.debug ? 'cheap-module-eval-source-map' : false,
   entry: config.entry,
   output: {
     path: config.assets_path,
-    filename: config.debug ? '[name].js' : '[name].[chunkhash:8].js',
+    filename: config.debug ? '[name].js' : '[name].[hash:8].js',
     publicPath: config.assets_url
   },
   resolve: {
-    extensions: ['.js', '.css', '.json'],
+    extensions: ['.js', '.css', '.json', '.html'],
     alias: {
       root: path.join(__dirname, '../js'),
-      components: path.join(__dirname, '../js/Classes'),
+      components: path.join(__dirname, '../js/Classes')
     }
   },
   module: {
     rules: [
       // Linters
+      {
+        test: /\.pug$/,
+        loaders: ['pug-loader']
+      },
+      {
+        test: /\.(png|jpe?g|gif|svg|woff2?|eot|ttf|otf|wav)$/i,
+        use: [
+          'file-loader',
+          {
+            loader: 'image-webpack-loader',
+            options: {
+              bypassOnDebug: true
+            }
+          }
+        ]
+      },
       {
         test: /\.(js)$/,
         loader: 'eslint-loader',
@@ -47,31 +66,6 @@ let webpackBase = {
           fallback: 'style-loader',
           use: ['css-loader', 'postcss-loader']
         })
-      }, {
-        test: /\.(png|jpe?g|gif|svg|woff2?|eot|ttf|otf|wav)(\?.*)?$/,
-        use: [{
-          loader: 'url-loader',
-          query: {
-            limit: 10,
-            name: '[name].[hash:7].[ext]'
-          }
-        }]
-      },
-      {
-        test: /\.(gif|png|jpe?g|svg)$/i,
-        use: [
-          'file-loader',
-          {
-            loader: 'image-webpack-loader',
-            options: {
-              bypassOnDebug: true,
-            },
-          },
-        ],
-      },
-      {
-        test: /\.ejs$/,
-        loader: 'ejs-loader'
       }
     ]
   },
@@ -92,7 +86,13 @@ let webpackBase = {
       filename: '[name].[contenthash:8].css',
       disable: config.debug
     }),
-    // new FriendlyErrorsWebpackPlugin()
+    new webpack.HotModuleReplacementPlugin(),
+    new HtmlWebpackPlugin({
+      filename: 'index.html',
+      pkg: pkg,
+      template: path.join(libPath, 'index.pug'),
+      inject: 'body'
+    })
   ],
   devServer: {
     headers: {'Access-Control-Allow-Origin': '*'}
@@ -102,6 +102,7 @@ let webpackBase = {
   }
 }
 
+/*
 if (config.html) {
   const HtmlWebpackPlugin = require('html-webpack-plugin')
   const glob = require('glob')
@@ -116,5 +117,6 @@ if (config.html) {
     )
   })
 }
+*/
 
 module.exports = webpackBase
