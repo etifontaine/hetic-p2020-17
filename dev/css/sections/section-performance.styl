@@ -1,0 +1,39 @@
+.performance
+  &__transition
+    width 100%
+    height 100%
+    display flex
+    flex-direction row
+    &-item
+      height 100%
+      background $primary-color-darker
+      transform-origin 50% 0%
+      transition transform .45s ease-in-out
+      width 40vw
+      @media (min-width: $laptop)
+        width 20vw      
+      &:nth-child(2), &:nth-child(3)
+        display none
+        @media (min-width: $laptop)
+          display block
+      &:first-child, &:last-child
+        width 20vw
+        @media (min-width: $laptop)
+          width 10vw  
+
+.performance.section--fade-in
+  .performance__transition-item
+    transform scaleY(0)
+    &:nth-child(1)
+      transition-delay .4s
+    &:nth-child(2)
+      transition-delay .5s      
+    &:nth-child(3)
+      transition-delay .6s      
+    &:nth-child(4)
+      transition-delay .7s    
+    &:nth-child(5)
+      transition-delay .8s      
+    &:nth-child(6)
+      transition-delay .9s      
+    

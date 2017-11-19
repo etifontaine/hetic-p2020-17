@@ -9,11 +9,12 @@
     <!-- inject:css -->
     <!-- endinject -->
 </head>
+<body>
 <header class="header">
-    <button class="header-toggle">
+    <button class="header__toggle">
         <span></span><span></span><span></span>
     </button>
-    <div class="header-logo">
+    <button class="header__logo header__item">
         <svg version="1.0" viewBox="0 0 760 180" xmlns="http://www.w3.org/2000/svg">
             <g transform="translate(360 -372.36)">
                 <g transform="matrix(10.456 0 0 -10.456 -294.86 377.35)">
@@ -41,101 +42,162 @@
                 </g>
             </g>
         </svg>
-    </div>
-    <nav class="header-nav">
+    </button>
+    <nav class="header__nav">
         <ul>
             <li>
-                <button class="active">le ski</button>
+                <button class="header__item">le ski</button>
             </li>
             <li>
-                <button>la performance</button>
+                <button class="header__item">la performance</button>
             </li>
             <li>
-                <button>chris benchetler</button>
+                <button class="header__item">chris benchetler</button>
             </li>
             <li>
-                <button>personnaliser</button>
+                <button class="header__item">personnaliser</button>
             </li>
         </ul>
     </nav>
 </header>
-<section class="section section-landing">
-    <div class="landing-background">
-        <div class="landing-background-img">
-            <img src="./assets/mountain-1.png" alt="mountain background">
+<div class="grid">
+    <div class="grid__bar"></div>
+    <div class="grid__bar"></div>
+    <div class="grid__bar"></div>
+    <div class="grid__bar"></div>
+    <div class="grid__bar"></div>
+</div>
+<main class="container">
+    <section class="section landing">
+        <div class="landing__background">
+            <div class="landing__background-img">
+                <img src="./assets/img/mountain-4-blur.png" alt="mountain background">
+            </div>
+            <div class="landing__background-img">
+                <img src="./assets/img/mountain-3-blur.png" alt="mountain background">
+            </div>
+            <div class="landing__background-img">
+                <img src="./assets/img/mountain-2-blur.png" alt="mountain background">
+            </div>
+            <div class="landing__background-img">
+                <img src="./assets/img/mountain-1.png" alt="mountain background">
+            </div>
         </div>
-        <div class="landing-background-img">
-            <img src="./assets/mountain-2.png" alt="mountain background">
+        <div class="landing__title landing__title__behind">
+            <span class="landing__title-shadow">Backland</span>
         </div>
-        <div class="landing-background-img">
-            <img src="./assets/mountain-3.png" alt="mountain background">
+        <div class="landing__title">
+            <h1 class="landing__title-text">Backland</h1>
+            <p class="landing__title-description">
+                Magna ea nisi officia amet culpa qui reprehenderit exercitation eiusmod eu sint aliquip. Ullamco eiusmod
+                nisi ullamco mollit.
+            </p>
         </div>
-        <div class="landing-background-img">
-            <img src="./assets/mountain-4.png" alt="mountain background">
+        <button class="landing__next next__button">
+                <span>
+                    <svg class="landing__next-icon" viewBox="0 0 20 20"> <path fill="none"
+                                                                               d="M1.729,9.212h14.656l-4.184-4.184c-0.307-0.306-0.307-0.801,0-1.107c0.305-0.306,0.801-0.306,1.106,0 l5.481,5.482c0.018,0.014,0.037,0.019,0.053,0.034c0.181,0.181,0.242,0.425,0.209,0.66c-0.004,0.038-0.012,0.071-0.021,0.109 c-0.028,0.098-0.075,0.188-0.143,0.271c-0.021,0.026-0.021,0.061-0.045,0.085c-0.015,0.016-0.034,0.02-0.051,0.033l-5.483,5.483 c-0.306,0.307-0.802,0.307-1.106,0c-0.307-0.305-0.307-0.801,0-1.105l4.184-4.185H1.729c-0.436,0-0.788-0.353-0.788-0.788 S1.293,9.212,1.729,9.212z"></path></svg>
+                </span>
+        </button>
+    </section>
+    <section class="section ski">
+        <div class="ski__background">
+            <img src="./assets/img/background-ski.jpg" alt="">
         </div>
-    </div>
-    <div class="landing-title rellax">
-        <h1>Backland</h1>
-    </div>
-</section>
-<section class="section">
-
-</section>
-<div class="section section-creation">
-    <div class="title">
-        <h2>Personnaliser</h2>
-        <div class="title-legend">
-            <p class="title-legend-text">Backland</p>
-            <div class="title-legend-line"></div>
+        <h2 class="ski__title">le ski</h2>
+        <p class="ski__text">
+            L’Atomic Backland Bent Chetler est un ski culte pour tous les amateurs de grosses virées en poudreuse. Il
+            offre non seulement une meilleure portance dans la neige profonde, mais permet également d’exploiter de
+            nouvelles possibilités dans la poudreuse.
+        </p>
+        <button class="ski__image">
+                <span class="ski__image-item">
+                    <img src="./assets/img/ski1-back.png" alt="ski back">
+                    <img src="./assets/img/ski1-front.png" alt="ski front">
+                </span>
+            <span class="ski__image-item">
+                    <img src="./assets/img/ski2-back.png" alt="ski back">
+                    <img src="./assets/img/ski2-front.png" alt="ski front">  
+                </span>
+        </button>
+        <button class="ski__next next__button">
+                <span>
+                    <svg class="ski__next-icon" viewBox="0 0 20 20"> <path fill="none"
+                                                                           d="M1.729,9.212h14.656l-4.184-4.184c-0.307-0.306-0.307-0.801,0-1.107c0.305-0.306,0.801-0.306,1.106,0 l5.481,5.482c0.018,0.014,0.037,0.019,0.053,0.034c0.181,0.181,0.242,0.425,0.209,0.66c-0.004,0.038-0.012,0.071-0.021,0.109 c-0.028,0.098-0.075,0.188-0.143,0.271c-0.021,0.026-0.021,0.061-0.045,0.085c-0.015,0.016-0.034,0.02-0.051,0.033l-5.483,5.483 c-0.306,0.307-0.802,0.307-1.106,0c-0.307-0.305-0.307-0.801,0-1.105l4.184-4.185H1.729c-0.436,0-0.788-0.353-0.788-0.788 S1.293,9.212,1.729,9.212z"></path></svg>
+                </span>
+        </button>
+    </section>
+    <section class="section performance">
+        <div class="performance__transition">
+            <div class="performance__transition-item"></div>
+            <div class="performance__transition-item"></div>
+            <div class="performance__transition-item"></div>
+            <div class="performance__transition-item"></div>
+            <div class="performance__transition-item"></div>
+            <div class="performance__transition-item"></div>
         </div>
-    </div>
-    <div class="background rellax" data-rellax-speed="1"></div>
-    <div class="content">
-        <div class="content-left">
-            <div class="content-left-ski content-left-ski__planche visible" style="background-image: url('/assets/ski.png')"></div>
-            <div class="content-left-ski content-left-ski__fixation" style="background-image: url('/assets/th_tracker.png')"></div>
-            <div class="content-left-ski content-left-ski__fixation" style="background-image: url('/assets/sth.png')"></div>
-            <div class="content-left-ski content-left-ski__planche" style="background-image: url('/assets/back.png')"></div>
+    </section>
+    <section class="section section-creation">
+        <div class="title">
+            <h2>Personnaliser</h2>
+            <div class="title-legend">
+                <p class="title-legend-text">Backland</p>
+                <div class="title-legend-line"></div>
+            </div>
         </div>
-        <div class="content-right">
-            <div class="right-height">
-                <div class="right-title">
-                    <p>Taille de ski</p>
-                </div>
-                <div class="select">
-                    <p class="select-title">Taille de ski</p>
-                    <div class="select-content">
-                        <% for(var i = 150; i < 190; i+= 10) { %>
+        <div class="background rellax" data-rellax-speed="1"></div>
+        <div class="content">
+            <div class="content-left">
+                <div class="content-left-ski content-left-ski__planche visible"
+                     style="background-image: url('/assets/ski.png')"></div>
+                <div class="content-left-ski content-left-ski__fixation"
+                     style="background-image: url('/assets/th_tracker.png')"></div>
+                <div class="content-left-ski content-left-ski__fixation"
+                     style="background-image: url('/assets/sth.png')"></div>
+                <div class="content-left-ski content-left-ski__planche"
+                     style="background-image: url('/assets/back.png')"></div>
+            </div>
+            <div class="content-right">
+                <div class="right-height">
+                    <div class="right-title">
+                        <p>Taille de ski</p>
+                    </div>
+                    <div class="select">
+                        <p class="select-title">Taille de ski</p>
+                        <div class="select-content">
+                            <% for(var i = 150; i < 190; i += 10) { %>
                             <div class="select-value" data-value="<%= [i] %>">
-                                <%= [i] %> cm</div>
+                                <%= [i] %> cm
+                            </div>
                             <% } %>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="right fixations">
-                <div class="right-title">
-                    <p>Bindings</p>
+                <div class="right fixations">
+                    <div class="right-title">
+                        <p>Bindings</p>
+                    </div>
+                    <div class="fixations-name">
+                        <p class="fixations-name-value">Sans fixation</p>
+                    </div>
+                    <div class="fixations-select">
+                        <div class="fixation active" data-name="Sans fixation" data-shortcode="null"></div>
+                        <div class="fixation" data-name="T Tracker MNC 16 L" data-index="0" data-shortcode="th"
+                             style="background-image: url('/assets/th_tracker.png')"></div>
+                        <div class="fixation" data-name="STH WTR 16" data-index="1" data-shortcode="sth"
+                             style="background-image: url('/assets/sth.png')"></div>
+                    </div>
                 </div>
-                <div class="fixations-name">
-                    <p class="fixations-name-value">Sans fixation</p>
+                <div class="right price">
+                    <p class="price-text"></p>
+                    <button class="price-btn">BUY</button>
                 </div>
-                <div class="fixations-select">
-                    <div class="fixation active" data-name="Sans fixation" data-shortcode="null"></div>
-                    <div class="fixation" data-name="T Tracker MNC 16 L" data-index="0" data-shortcode="th" style="background-image: url('/assets/th_tracker.png')"></div>
-                    <div class="fixation" data-name="STH WTR 16" data-index="1" data-shortcode="sth" style="background-image: url('/assets/sth.png')"></div>
-                </div>
-            </div>
-            <div class="right price">
-                <p class="price-text"></p>
-                <button class="price-btn">BUY</button>
             </div>
         </div>
-    </div>
-</div>
-
-<body>
-    <!-- inject:js -->
-    <!-- endinject -->
+    </section>
+</main>
+<!-- inject:js -->
+<!-- endinject -->
 </body>
 
 </html>

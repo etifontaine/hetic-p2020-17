@@ -9,9 +9,21 @@
   display flex
   justify-content space-between
   flex-wrap wrap
+  transition transform .3s $cubic
+  &::before
+    content ""
+    width 100%
+    height 100%
+    position absolute
+    z-index -1
+    top 0
+    left 0
+    background $white
+    transition transform .3s $cubic    
+    transform translateY(-130%)
   @media (min-width $laptop)
-    transform translateY(30px)
-  &-toggle
+    transform translateY(30%)
+  &__toggle
     width 80px
     height 80px
     display flex
@@ -23,7 +35,7 @@
       display block
       width 30px
       height 3px
-      background $grey
+      background $black
       transform-origin 50% 50%
       transition transform .3s $cubic, opacity .2s $cubic, background .2s $cubic
       border-radius $radius
@@ -36,7 +48,7 @@
         transform translateY(7px)
     @media (min-width $laptop)
       display none
-  &-logo
+  &__logo
     width 200px
     height 80px
     display flex
@@ -44,26 +56,29 @@
       width 140px
       margin auto
       path
-        fill $grey
+        fill $black
         transition fill .2s $cubic
     @media (min-width $laptop)
       margin-left 10vw
-  &-nav
+  &__nav
     position absolute
     z-index -1
-    top 0
-    left 0
-    width 100%
-    height 100vh
+    top -10vmax
+    left -10vmax
+    width 40px
+    height 40px
     padding-top 140px
     flex-shrink 0
     background rgba($black, 75%)
-    transform translateX(-100%)
-    transition transform .5s $cubic
+    transition all .5s $cubic
+    overflow hidden
+    border-radius 100%
     ul
       list-style none
       padding 0
-      margin 0
+      margin 10vmax
+      width 100vw
+      height calc(100vh - 140px)
       button
         width 100%
         height calc((100vh - 200px) / 4)
@@ -82,11 +97,14 @@
       width auto
       top 0
       right 10vw
+      left 0
       padding 0
-      background none      
-      transform translateX(0)
+      margin 0
+      background none
       ul
+        width 100%
         height 80px
+        margin 0
         display flex
         flex-direction row
         justify-content flex-end
@@ -103,29 +121,34 @@
             &::after
               content ""
               position absolute
+              z-index -1
               bottom 0
               left 0
-              width 60px
-              height 2px
-              background $primary-color-border
+              width 50%
+              height 100%
+              background $primary-color-darker
               transform-origin 0 50%
               transition transform .3s $cubic
               transform scaleX(0)
             &:active
               background none 
               color $black
-            &.active
+            &.header__item--active
               &::after
                 transform scaleX(1)
+
   &.header--show
-    @media (max-width ($laptop - 1))
-      .header-logo 
+    @media (max-width ($laptop))
+      .header__logo 
         svg
           path
             fill $white
-      .header-nav
+      .header__nav
         transform translateX(0)
-      .header-toggle
+        width 120vmax
+        height 120vmax
+        border-radius 0%
+      .header__toggle
         span
           background $white
           &:nth-child(1)
@@ -134,3 +157,9 @@
             opacity 0
           &:nth-child(3)
             transform translateY(-3px) rotate(-45deg)
+
+  &.header__background
+    transform translate(0)
+    &::before
+      transform translateY(0%)
+      box-shadow 0 1px 5px rgba(0,0,0,.1)

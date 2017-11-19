@@ -5,16 +5,12 @@
   "main": "",
   "scripts": {
     "build": "cross-env NODE_ENV=production rimraf dist && webpack --config build/webpack.prod.js",
-    "dev": "cross-env NODE_ENV=development node build/server.js",
-    "postinstall": "yarn install express"
+    "dev": "cross-env NODE_ENV=development node build/server.js"
   },
   "license": "MIT",
   "dependencies": {
     "rellax": "^1.3.0",
     "smoothscroll-polyfill": "^0.4.0"
-  },
-  "engines": {
-    "node": "8.7.0"
   },
   "devDependencies": {
     "assets-webpack-plugin": "^3.5.0",

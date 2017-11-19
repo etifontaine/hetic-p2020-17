@@ -1,0 +1,186 @@
+.ski
+  display flex
+  flex-direction column
+  justify-content center
+  align-content center
+  &::before, &::after
+    content ''
+    position absolute
+    z-index 20
+    top 0
+    left 0
+    width 100%
+    height 100%
+    transform-origin 50% 100%
+    transition transform .75s .1s $cubic
+  &::before
+    background $primary-color-darker
+  &::after
+    background $white
+  &__background
+    position absolute
+    z-index -10
+    top 0
+    left 0
+    width 100%
+    height 100%
+    display flex
+    justify-content center
+    align-items center
+    &::after
+      content ""
+      position absolute
+      width 15vw
+      min-width 150px
+      height 10vw
+      min-height 100px
+      left 0
+      bottom 0
+      background rgba($primary-color-darker, 40%)
+    img
+      flex-shrink 1
+      height 100%
+      width auto
+      margin-left -110%
+      transition transform .5s 0s $cubic
+      @media (min-width $tablet)
+        margin-left 0%
+  &__title
+    position relative
+    display inline-block
+    margin 0    
+    margin-left 17vw
+    padding 0
+    text-align left
+    font-size 30px
+    width 100%
+    text-transform capitalize
+    @media (min-width $mobile)
+      margin-left 50vw
+      font-size 44px    
+  &__text
+    position relative
+    z-index 10
+    width 100%
+    padding 0 17vw
+    margin 20px 0
+    font-size 15px
+    line-height 1.7
+    &::before
+      content ""
+      position absolute
+      z-index -1
+      width 20vw
+      min-width 200px
+      height 15vw
+      min-height 150px
+      top -8vw
+      right -10vw
+      background rgba($primary-color-darker, 40%)
+    @media (min-width $mobile)
+      padding 0
+      margin 5vh 0
+      margin-left 50vw
+      width 50vw
+      max-width 700px
+      font-size 17px 
+      @media (min-width: $laptop)
+        // padding-right 10vw
+        margin-top 5vh
+        margin-bottom 10vh
+  &__image
+    position relative    
+    margin-left 17vw
+    margin-bottom 2vh
+    perspective 400px
+    display inline-block
+    width auto
+    height auto    
+    @media (min-width $mobile)
+      margin-bottom 0
+      margin-left 50vw 
+      margin-right 10vw
+    &-item
+      display block
+      height 50px
+      margin-bottom 10px
+      transition transform .75s $cubic
+      transform-style preserve-3d
+      @media (min-width: $laptop)
+        margin-bottom 3vh
+        width 40vw
+        max-width 1000px        
+      img
+        height 100%
+        width auto
+        max-width 700px
+        position absolute
+        z-index 10
+        top 0
+        left 0
+        backface-visibility hidden
+        transform-style preserve-3d
+        @media (min-width: $mobile)
+          width 100%
+          height auto
+        &:nth-child(1)
+          backface-visibility hidden
+          transform rotateX(180deg)
+      &:nth-child(2)
+        display none
+        @media (min-width $s-mobile)
+          display block
+          margin-bottom 0
+    &:hover
+      .ski__image-item
+        transform rotateX(180deg)
+  &__next
+    width 100vw
+    height 100vw
+    background $primary-color-darker
+    position absolute
+    z-index 50
+    bottom -70vw
+    left 0
+    border-radius 50%
+    overflow hidden
+    span
+      display flex
+      width 100%
+      height 100%
+    @media (min-width: $tablet)
+      width 60vw
+      height 60vw
+      bottom -45vw
+      left 20vw
+    @media (min-width: $laptop)
+      width 40vw
+      height 40vw
+      bottom -35vw
+      left 30vw
+      transition transform .4s $cubic
+      &:hover
+        transform scale(1.1)
+        .ski__next-icon
+          transform scale(0.9) translateY(45px) rotate(90deg)
+    &-icon
+      width 30px
+      height 30px
+      margin auto
+      margin-top 20px  
+      transform rotate(90deg)      
+      transition transform .4s $cubic      
+      path
+        fill $white
+
+.ski.section--fade-in
+  &::before
+    transition transform .5s .65s $cubic
+    transform translateY(100%)
+  &::after
+    transition transform .5s .65s $cubic
+    transform translateY(150%)
+  .ski__background
+    img
+      transition transform .75s .6s $cubic     
+      transform scale(1.1)

@@ -1,13 +1,21 @@
 class Header {
   constructor (header) {
-    this.header = header
-    this.btn_toggle = header.querySelector('.header-toggle')
-    this.btn_toggle.addEventListener('click', () => {
-      this.toggle()
-    })
     console.log('init header')
+    this.header = header
+    this.toggle_item = header.querySelector('.header__toggle')
+
+    /**
+     * call toggleVisibilty on button toggle click
+     */
+    this.toggle_item.addEventListener('click', () => {
+      this.toggleVisibility()
+    })
   }
-  toggle () {
+
+  /**
+   * toggle nav visibilty on mobile device
+   */
+  toggleVisibility () {
     this.header.classList.toggle('header--show')
   }
 }
