@@ -37,6 +37,9 @@
       left 0
       bottom 0
       background rgba($primary-color-darker, 40%)
+      transform-origin 0 50%
+      transition transform .55s $cubic
+      transform scaleX(0)
     img
       flex-shrink 1
       height 100%
@@ -47,25 +50,64 @@
         margin-left 0%
   &__title
     position relative
-    display inline-block
-    margin 0    
+    margin 0
     margin-left 17vw
     padding 0
     text-align left
-    font-size 30px
-    width 100%
-    text-transform capitalize
+    font-size 35px
+    width 160px
+    font-family $font-extra
+    font-weight 400
+    transform translateX(-20vw)
+    transition transform .45s ease-in-out
     @media (min-width $mobile)
       margin-left 50vw
-      font-size 44px    
+      font-size 50px
+      width 220px
+    &::after
+      content ""
+      position absolute
+      width 60%
+      height 100%
+      top 0
+      left -5%
+      background $white
+      transform-origin 100% 50%
+      transition transform .65s $cubic
   &__text
     position relative
     z-index 10
     width 100%
     padding 0 17vw
-    margin 20px 0
+    margin 30px 0
     font-size 15px
-    line-height 1.7
+    line-height 1.5
+    color rgba($black, 80%)
+    font $main-font
+    transition transform .45s ease-in-out
+    transform translateX(-20vw)
+    @media (min-width $mobile)
+      padding 0
+      margin 5vh 0
+      margin-left 50vw
+      width 50vw
+      max-width 700px
+      font-size 17px
+    @media (min-width: $laptop)
+      width 40vw
+      margin-top 2vh
+      margin-bottom 8vh
+      line-height 1.7
+    &::after
+      content ""
+      position absolute
+      width 110%
+      height 100%
+      top 0
+      left -5%
+      background $white
+      transform-origin 100% 50%
+      transition transform .65s $cubic
     &::before
       content ""
       position absolute
@@ -77,39 +119,49 @@
       top -8vw
       right -10vw
       background rgba($primary-color-darker, 40%)
-    @media (min-width $mobile)
-      padding 0
-      margin 5vh 0
-      margin-left 50vw
-      width 50vw
-      max-width 700px
-      font-size 17px 
-      @media (min-width: $laptop)
-        // padding-right 10vw
-        margin-top 5vh
-        margin-bottom 10vh
   &__image
-    position relative    
+    position relative
     margin-left 17vw
     margin-bottom 2vh
     perspective 400px
     display inline-block
     width auto
-    height auto    
+    max-width 700px
+    transition transform .45s ease-in-out
+    transform translateX(-20vw)
     @media (min-width $mobile)
-      margin-bottom 0
-      margin-left 50vw 
+      margin-bottom 10vh
+      margin-left 50vw
       margin-right 10vw
+    &:hover
+      .ski__image-item
+        transform rotateX(180deg)
+    &::after
+      content ""
+      position absolute
+      z-index 10
+      width 110%
+      height 100%
+      top 0
+      left -5%
+      background $white
+      transform-origin 100% 50%
+      transition transform .65s $cubic
     &-item
       display block
-      height 50px
+      height 60px
       margin-bottom 10px
       transition transform .75s $cubic
       transform-style preserve-3d
       @media (min-width: $laptop)
         margin-bottom 3vh
         width 40vw
-        max-width 1000px        
+        max-width 1000px
+      &:nth-child(2)
+        display none
+        @media (min-width $s-mobile)
+          display block
+          margin-bottom 0
       img
         height 100%
         width auto
@@ -126,14 +178,6 @@
         &:nth-child(1)
           backface-visibility hidden
           transform rotateX(180deg)
-      &:nth-child(2)
-        display none
-        @media (min-width $s-mobile)
-          display block
-          margin-bottom 0
-    &:hover
-      .ski__image-item
-        transform rotateX(180deg)
   &__next
     width 100vw
     height 100vw
@@ -144,6 +188,11 @@
     left 0
     border-radius 50%
     overflow hidden
+    transition transform .4s $cubic    
+    &:hover
+      transform scale(1.1)
+      .ski__next-icon
+        transform scale(0.9) translateY(45px) rotate(90deg)
     span
       display flex
       width 100%
@@ -158,21 +207,19 @@
       height 40vw
       bottom -35vw
       left 30vw
-      transition transform .4s $cubic
-      &:hover
-        transform scale(1.1)
-        .ski__next-icon
-          transform scale(0.9) translateY(45px) rotate(90deg)
     &-icon
       width 30px
       height 30px
       margin auto
-      margin-top 20px  
-      transform rotate(90deg)      
-      transition transform .4s $cubic      
+      margin-top 20px
+      transform rotate(90deg)
+      transition transform .4s $cubic
       path
         fill $white
 
+/**
+* Fade in transition
+*/
 .ski.section--fade-in
   &::before
     transition transform .5s .65s $cubic
@@ -182,5 +229,26 @@
     transform translateY(150%)
   .ski__background
     img
-      transition transform .75s .6s $cubic     
-      transform scale(1.1)
+      transition transform .85s .6s $cubic
+      transform scale(1.15)
+    &::after
+      transition-delay .75s
+      transform scaleX(1)
+  .ski__title
+    transition transform .4s .6s $cubic
+    transform translateX(0)
+    &::after
+      transition-delay 1s
+      transform scaleX(0)
+  .ski__text
+    transition transform .4s .8s $cubic
+    transform translateX(0)
+    &::after
+      transition-delay 1.2s
+      transform scaleX(0)
+  .ski__image
+    transition transform .4s 1s $cubic
+    transform translateX(0)
+    &::after
+      transition-delay 1.4s
+      transform scaleX(0)
