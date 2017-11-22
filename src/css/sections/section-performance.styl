@@ -1,5 +1,12 @@
 .performance
+  display flex
+  flex-direction row
+  align-items center
   &__transition
+    position absolute
+    z-index 90
+    top 0
+    left 0
     width 100%
     height 100%
     display flex
@@ -21,6 +28,45 @@
         @media (min-width: $laptop)
           width 10vw  
 
+  &__visualization
+    position relative
+    width 40vw
+    height 40vw
+    margin auto 10vw
+    &-text
+      position absolute
+      top -15px
+      left -40px
+      width 80px
+      height 30px
+      line-height 30px
+      text-align center
+      font-size 15px
+      text-transform uppercase
+      font-family 'Oswald', sans-serif
+      font-weight 300
+    &-svg
+      width 100%
+      height 100%
+      .circle-main
+        fill lighten($primary-color-darker, 90%)
+        stroke $primary-color-darker
+        stroke-width 1px
+      .circle
+        fill none
+        stroke lighten($primary-color-darker, 70%)
+        stroke-width 1px
+      .shadow
+        opacity .1
+      line
+        stroke lighten($primary-color-darker, 70%)
+        stroke-width 1px
+      polygon
+        fill $primary-color-darker
+
+/**
+* fade in transition
+*/
 .performance.section--fade-in
   .performance__transition-item
     transform scaleY(0)
