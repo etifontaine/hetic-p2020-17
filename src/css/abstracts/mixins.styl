@@ -7,13 +7,3 @@ font-size(value) {
     font-size: remify(value)
   }
 }
-
-remify(value) { /* separate mixin, so it can be used elsewhere */
-  u = unit(value)
-
-  if (u is 'px') {
-    return unit(value / 16, 'rem')
-  } else {
-    return unit(value, u)
-  }
-}
