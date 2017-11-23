@@ -1,4 +1,4 @@
-# Atomic Chris Benhetler Ski
+# Atomic Chris Benchetler Ski
 
 ## Getting started
 
