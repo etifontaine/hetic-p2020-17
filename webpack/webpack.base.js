@@ -117,6 +117,7 @@ let webpackBase = {
       short_name: 'Backland',
       description: 'HETIC P2020 Groupe 17!',
       background_color: '#ffffff',
+      theme_color: '#ffffff',
       icons: [
         {
           src: path.join(libPath, '/assets/img/atomic.jpg'),
