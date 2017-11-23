@@ -1,5 +1,7 @@
 # Atomic Chris Benchetler Ski
 
+* [Visit website](https://hetic-p2020-17.netlify.com)
+
 ## Getting started
 
 ### Prerequisites
