@@ -1,0 +1,47 @@
+.animate
+  transition transform .3s ease-in-out
+
+.travel__container
+  height 100%
+  position relative
+  overflow hidden
+  
+  &--ms-touch
+    overflow-x scroll
+    overflow-y hidden
+
+    -ms-overflow-style none
+    /* Hides the scrollbar. */
+
+    -ms-scroll-chaining none
+    /* Prevents Metro from swiping to the next tab or app. */
+
+    -ms-scroll-snap-type mandatory
+    /* Forces a snap scroll behavior on your images. */
+
+    -ms-scroll-snap-points-x snapInterval(0%, 100%)
+    /* Defines the y and x intervals to snap to when scrolling. */
+
+.travel__mountain
+  height 120%
+  position absolute
+  bottom 0
+  will-change transform
+  pointer-events none
+
+.travel__cards
+  overflow-y hidden
+  width 300%
+  display flex
+  position absolute
+  bottom 0
+  left 0
+  justify-content space-around
+  will-change transform
+
+.travel__card
+  max-width 30%
+  padding 25px
+  margin-bottom 40px
+  background rgba(195, 195, 195, .8)
+  border-radius 5px
