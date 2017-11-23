@@ -23,6 +23,7 @@ Header append Vary User-Agent env=!dont-vary
   ExpiresActive On
   ExpiresDefault "access plus 7200 seconds"
   AddType image/x-icon .ico
+  AddType application/x-font-ttf ttc ttf
   AddType application/x-font-woff .woff
   AddType application/x-font-woff2 .woff2
   ExpiresByType image/gif "access plus 1 year"
