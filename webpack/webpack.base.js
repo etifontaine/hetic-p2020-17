@@ -7,6 +7,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const libPath = path.join(__dirname, '../src')
 const pkg = require('../package.json')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
+const CleanWebpackPlugin = require('clean-webpack-plugin')
 
 let webpackBase = {
     devtool: config.debug ? 'cheap-module-eval-source-map' : false,
@@ -75,6 +76,7 @@ let webpackBase = {
             proxy: 'localhost:3000',
             notify: false
         }),
+        new CleanWebpackPlugin(['dist']),
         new webpack.LoaderOptionsPlugin({
             options: {
                 tslint: {
