@@ -2,7 +2,7 @@ const path = require('path')
 
 module.exports = {
   entry: {
-    app: ['./src/css/main.styl', './src/js/main.js']
+    app: ['./src/css/app.styl', './src/js/main.js']
   },
   port: 3000,
   html: true,
