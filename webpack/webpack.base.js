@@ -8,13 +8,18 @@ const libPath = path.join(__dirname, '../src')
 const pkg = require('../package.json')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
+const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin')
+const SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin')
+const WebpackPwaManifest = require('webpack-pwa-manifest')
+
+const PUBLIC_PATH = config.assets_url
 
 let webpackBase = {
   devtool: config.debug ? 'cheap-module-eval-source-map' : false,
   entry: config.entry,
   output: {
     path: config.assets_path,
-    filename: config.debug ? '[name].js' : '[name].js',
+    filename: config.debug ? '[name].js' : '[name].[hash:8].js',
     publicPath: config.assets_url
   },
   resolve: {
@@ -26,7 +31,6 @@ let webpackBase = {
   },
   module: {
     rules: [
-      // Linters
       {
         test: /\.pug$/,
         loaders: ['pug-loader']
@@ -34,17 +38,20 @@ let webpackBase = {
       {
         test: /\.(png|jpe?g|gif|svg|woff2?|eot|ttf|otf|wav)$/i,
         use: [
-          'file-loader'
+          'file-loader',
+          {
+            loader: 'image-webpack-loader',
+            options: {
+              bypassOnDebug: true
+            }
+          }
         ]
       },
       {
         test: /\.(js)$/,
-        loader:
-          'eslint-loader',
-        exclude:
-          [/node_modules/],
-        enforce:
-          'pre'
+        loader: 'eslint-loader',
+        exclude: [/node_modules/],
+        enforce: 'pre'
       },
       {
         test: /\.js$/,
@@ -88,21 +95,45 @@ let webpackBase = {
       }
     }),
     new ExtractCSSPlugin({
-      filename: '[name].css',
+      filename: '[name].[contenthash:8].css',
       disable: config.debug
     }),
     new webpack.HotModuleReplacementPlugin(),
     new HtmlWebpackPlugin({
       filename: 'index.html',
       template: path.join(libPath, 'index.pug'),
-      async: ['app'],
       pkg,
-      inject: false
+      inject: 'body'
+    }),
+    new ScriptExtHtmlWebpackPlugin({
+      defaultAttribute: 'async'
     }),
     new CopyWebpackPlugin([
-      // {output}/file.txt
       {from: path.join(libPath, '.htaccess')}
     ]),
+    new webpack.optimize.ModuleConcatenationPlugin(),
+    new WebpackPwaManifest({
+      name: 'Backland',
+      short_name: 'Backland',
+      description: 'HETIC P2020 Groupe 17!',
+      background_color: '#ffffff',
+      icons: [
+        {
+          src: path.join(libPath, '/assets/img/atomic.jpg'),
+          sizes: [96, 128, 192, 256, 384, 512, 1024]
+        }
+      ]
+    }),
+    new SWPrecacheWebpackPlugin(
+      {
+        cacheId: 'backland',
+        dontCacheBustUrlsMatching: /\.\w{8}\./,
+        filename: 'service-worker.js',
+        minify: true,
+        navigateFallback: PUBLIC_PATH + 'index.html',
+        staticFileGlobsIgnorePatterns: [/\.map$/, /manifest\.json$/]
+      }
+    ),
   ],
   devServer:
     {
