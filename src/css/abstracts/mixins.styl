@@ -1,9 +1,3 @@
 font-size(value) {
   font-size: value; /* add PX (or original value) as backup */
-
-  if (value is inherit) {
-    /* do nothing, "inherit" has no unit */
-  } else {
-    font-size: remify(value)
-  }
 }

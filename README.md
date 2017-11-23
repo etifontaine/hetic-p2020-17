@@ -3,5 +3,5 @@
    - yarn run dev
 
   # WEBSITE
-  https://hetic-p2020-17.etiennefontaine.fr/
+    http://hetic-p2020-17.netlify.com/
   
