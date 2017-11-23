@@ -12,7 +12,7 @@ const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin')
 const SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin')
 const WebpackPwaManifest = require('webpack-pwa-manifest')
 
-const PUBLIC_PATH = config.assets_url
+const PUBLIC_PATH = 'https://hetic-p2020-17.netlify.com/'
 
 let webpackBase = {
   devtool: config.debug ? 'cheap-module-eval-source-map' : false,
