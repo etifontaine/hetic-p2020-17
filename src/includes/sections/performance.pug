@@ -2,3 +2,10 @@ section.section.performance
     .performance__transition
         each val in [1,2,3,4,5,6]
             .performance__transition-item
+    .performance__visualization
+        svg.performance__visualization-svg
+            defs
+                filter(id="shadow", x="-100%", y="-100%", width="300%", height="300%")
+                    feOffset(result="offOut", in="SourceAlpha", dx="" dy="0")
+                    feGaussianBlur(result="blurOut" in="offOut", stdDeviation="10")
+                    feBlend(in="SourceGraphic", in2="blurOut", mode="normal")
