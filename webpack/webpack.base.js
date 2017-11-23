@@ -34,40 +34,42 @@ let webpackBase = {
       {
         test: /\.(png|jpe?g|gif|svg|woff2?|eot|ttf|otf|wav)$/i,
         use: [
-          'file-loader',
-          {
-            loader: 'image-webpack-loader',
-            options: {
-              bypassOnDebug: true
-            }
-          }
+          'file-loader'
         ]
       },
       {
         test: /\.(js)$/,
-        loader: 'eslint-loader',
-        exclude: [/node_modules/],
-        enforce: 'pre'
+        loader:
+          'eslint-loader',
+        exclude:
+          [/node_modules/],
+        enforce:
+          'pre'
       },
-      // Loaders
       {
         test: /\.js$/,
-        exclude: [/node_modules/, /libs/],
-        loader: 'babel-loader'
-      },
+        exclude:
+          [/node_modules/, /libs/],
+        loader:
+          'babel-loader'
+      }
+      ,
       {
         test: /\.styl$/,
-        use: ExtractCSSPlugin.extract({
-          fallback: 'style-loader',
-          use: ['css-loader', 'postcss-loader', 'stylus-loader']
-        })
-      },
+        use:
+          ExtractCSSPlugin.extract({
+            fallback: 'style-loader',
+            use: ['css-loader', 'postcss-loader', 'stylus-loader']
+          })
+      }
+      ,
       {
         test: /\.css$/,
-        use: ExtractCSSPlugin.extract({
-          fallback: 'style-loader',
-          use: ['css-loader', 'postcss-loader']
-        })
+        use:
+          ExtractCSSPlugin.extract({
+            fallback: 'style-loader',
+            use: ['css-loader', 'postcss-loader']
+          })
       }
     ]
   },
@@ -102,9 +104,14 @@ let webpackBase = {
       {from: path.join(libPath, '.htaccess')}
     ]),
   ],
-  devServer: {
-    headers: {'Access-Control-Allow-Origin': '*'}
-  },
+  devServer:
+    {
+      headers: {
+        'Access-Control-Allow-Origin':
+          '*'
+      }
+    }
+  ,
   performance: {
     hints: config.debug ? false : 'warning'
   }
