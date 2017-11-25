@@ -45,7 +45,7 @@ yarn run build
 
 ## Authors
 
-[![forthebadge](http://forthebadge.com/images/badges/built-with-love.svg)](http://forthebadge.com)
+[![forthebadge](http://forthebadge.com/images/badges/built-with-love.svg)](https://hetic-p2020-17.netlify.com)
 
 * Etienne Fontaine [@etifontaine](https://github.com/etifontaine)
 * Baptiste Villain [@BaptisteVillain](https://github.com/BaptisteVillain)
