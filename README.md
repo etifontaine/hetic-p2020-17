@@ -43,10 +43,20 @@ yarn run build
 
 ## Authors
 
+[![forthebadge](http://forthebadge.com/images/badges/built-with-love.svg)](http://forthebadge.com)
+
 * Etienne Fontaine [@etifontaine](https://github.com/etifontaine)
-* Baptiste Villain [@BaptisteVillain](https://github.com/BaptisteVillaine)
+* Baptiste Villain [@BaptisteVillain](https://github.com/BaptisteVillain)
 * Thibaut Renard [@Thibobbs](https://github.com/Thibobbs)
+* Luc Dandrel [@lucdandrel](https://github.com/lucdandrel)
+* Charlotte Farando [@chfarando](https://github.com/chfarando)
+* Antoine Amrhein [@AmrheinA](https://github.com/AmrheinA)
+
+## Thanks
+
+Thanks to [@johannpinson](https://github.com/johannpinson) and [@bcalou](https://github.com/bcalou) for their help. 
 
 ## License
 
-This project is licensed under the MIT License
+This project is licensed under the MIT License [![MIT Licence](https://badges.frapsoft.com/os/mit/mit.svg?v=103)](https://opensource.org/licenses/mit-license.php)
+
