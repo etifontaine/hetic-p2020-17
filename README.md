@@ -2,6 +2,8 @@
 
 * [Visit website](https://hetic-p2020-17.netlify.com)
 
+![Alt text](src/assets/img/screenshot.png?raw=true "Screenshot")
+
 ## Getting started
 
 ### Prerequisites
