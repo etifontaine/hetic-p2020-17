@@ -2,6 +2,8 @@
 
 * [Visit website](https://hetic-p2020-17.netlify.com)
 
+![Alt text](https://www.netlify.com/img/global/badges/netlify-color-bg.svg?raw=true "Netlify")
+
 ![Alt text](src/assets/img/screenshot.png?raw=true "Screenshot")
 
 ## Getting started

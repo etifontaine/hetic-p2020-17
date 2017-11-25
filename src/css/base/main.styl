@@ -40,3 +40,48 @@ body
       height 5px
       width 40vw
       background-color $blue-sky 
+
+.next
+  height 200px
+  width 200px
+  border-top-left-radius 50%
+  border-top-right-radius 50%
+  display flex
+  flex-direction column
+  position absolute
+  z-index 20
+  bottom 0
+  left calc(50% - 150px)
+  display flex
+  justify-content center
+  align-items center
+  color $black
+  stroke $black
+  border-color $black
+  &:hover
+    .next__button
+      background $black
+      color $white
+  &__button
+    display block
+    margin auto
+    width 50px
+    height 50px
+    border-radius 50%
+    background none
+    border 1px solid $black
+    color inherit
+    text-transform uppercase
+    font-size 12px
+    font-weight 400
+    transition background .25s $cubic, color .25s $cubic
+  &__svg
+    width 100%
+    height 100%
+    position absolute
+    z-index -1
+    top 0
+    left 0
+    &-line
+      stroke inherit
+      stroke-width 1
