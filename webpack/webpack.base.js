@@ -48,6 +48,10 @@ let webpackBase = {
         ]
       },
       {
+        test: /\.(webm|mp4)$/,
+        loader: 'file-loader'
+      },
+      {
         test: /\.(js)$/,
         loader: 'eslint-loader',
         exclude: [/node_modules/],
