@@ -153,15 +153,108 @@
   
 .video
   position relative
+  display flex
+  justify-content center
+  align-items center
+  &__seek-bar
+    width 100vw
+    height 5px
+    position absolute
+    bottom 0
+    left 0
+    &-fill
+      position absolute
+      width 100%
+      height 100%
+      transform-origin 0 50%
+      background $primary-color-darker
+      transform scaleX(0)
+  &__effect-play, &__effect-pause
+    display none    
+    position absolute
+    width 150px
+    height 150px
+    background rgba($black, .5)
+    border-radius 50%
+    top calc(50% - 75px)
+    left calc(50% - 75px)
+    pointer-events none
+    &--active
+      display flex
+      animation toggle-effect .45s $cubic forwards
+    svg 
+      margin auto
+      width 70px
+      height 70px
+      .icon
+        fill $white
+
+  &__timing
+    position absolute
+    bottom 20px
+    left 20px
+    font-size 15px
+    color $white
+    @media (min-width $laptop)
+      color $black
+    .minute
+      opacity 1
+      font-weight 600
+    .second
+      opacity 0.75
+      font-weight 400      
+  &__duration
+    margin-left 5px
+  &__current
+    margin-right 5px
+    color $primary-color-darker
+  &__mute
+    display block
+    position absolute
+    bottom 20px
+    right 20px
+    display flex
+    flex-direction row    
+    &--off
+      .video__mute-line
+        transform scaleY(.3) !important
+    &-line
+      width 3px
+      height 16px
+      margin 0 2px
+      transform-origin 50% 100%
+      background $white
+      transition transform .35s $cubic    
+      @media (min-width $laptop)
+        background $black
+      &:nth-child(1)
+        transform scaleY(0.6)
+      &:nth-child(2)
+        transform scaleY(0.8)
+      &:nth-child(3)
+        transform scaleY(1)        
+      &:nth-child(4)
+        transform scaleY(0.6)
+  .video__player
+    width 100vw
+    height auto
   .next:hover
     .next__button
       background $white
       color $black
+      @media (min-width $laptop)
+        background $black
+        color $white      
   .next__button
       color $white
       border-color $white
+      @media (min-width $laptop)
+        border-color $black
+        color $black
   .next__svg-line
     stroke $white  
+    @media (min-width $laptop)
+      stroke $black
     
     
   

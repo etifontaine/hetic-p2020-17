@@ -12,9 +12,7 @@ window.addEventListener('touchstart', function () {
 
 new Router()
 new Header(document.querySelector('.header'))
-const test = new About(document.querySelector('.section.ski'))
-
-console.log(test)
+new About(document.querySelector('.section.ski'))
 
 new Creation()
 new Landing()
@@ -23,9 +21,6 @@ const nextButtons = document.querySelectorAll('.next')
 
 nextButtons.forEach(button => {
   new NextButton(button)
-  console.log('hell')
 })
 
-const viz = new Visualization(document.querySelector('.performance__visualization-svg'), 6, ['blabla', 'bloblo', 'blublues', 'blibluer', 'bluro', 'bloeuri'], [0.9, 0.75, 0.65, 0.7, 0.85, 0.6])
-
-console.log(viz)
+new Visualization(document.querySelector('.performance__visualization-svg'), 6, ['blabla', 'bloblo', 'blublues', 'blibluer', 'bluro', 'bloeuri'], [0.9, 0.75, 0.65, 0.7, 0.85, 0.6])
