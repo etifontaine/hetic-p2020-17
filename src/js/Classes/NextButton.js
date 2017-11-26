@@ -29,8 +29,8 @@ class NextButton {
     this.button.x = 0
     this.button.y = 0
     window.addEventListener('resize', () => {
-      this.positions.left = this.video_skip_container.offsetLeft
-      this.positions.top = this.video_skip_container.offsetTop
+      this.positions.left = this.container.offsetLeft
+      this.positions.top = this.container.offsetTop
     })
     this.init()
     this.render()

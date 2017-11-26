@@ -9,6 +9,26 @@ section.section.ski
             | nouvelles possibilités dans la poudreuse.
         button.about__button découvrir
     .ski__section-video.video
+        video.video__player
+            source(src="http://clips.vorwaerts-gmbh.de/VfE_html5.mp4" type="video/mp4")
+        .video__effect-play
+            svg(fill='#000000', height='24', viewbox='0 0 24 24', width='24', xmlns='http://www.w3.org/2000/svg')
+                path(d='M0 0h24v24H0z', fill='none')
+                path.icon(d='M8 5v14l11-7z')
+        .video__effect-pause
+            svg(fill='#000000', height='24', viewbox='0 0 24 24', width='24', xmlns='http://www.w3.org/2000/svg')
+                path(d='M0 0h24v24H0z', fill='none')
+                path.icon(d='M6 19h4V5H6v14zm8-14v14h4V5h-4z')
+
+        .video__seek-bar
+            .video__seek-bar-fill
+        .video__timing
+            span.video__current 0:00
+            | /
+            span.video__duration 1:00
+        button.video__mute
+            each val in Array(4)
+                .video__mute-line
         .next
             svg.next__svg
                 line.next__svg-line
