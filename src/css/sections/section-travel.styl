@@ -40,8 +40,30 @@
   will-change transform
 
 .travel__card
-  max-width 30%
+  width 30%
   padding 25px
   margin-bottom 40px
   background rgba(195, 195, 195, .8)
-  border-radius 5px
+  border-radius 2px
+  display flex
+  justify-content center
+  @media (min-width $tablet)
+    width 20%
+
+.travel__controllers
+  .controllers
+    width 100px
+    height 40px
+    background $primary-color-darker
+    position absolute
+    bottom 0
+    border-radius 2px
+    font-size 12px
+    color #fff
+    text-transform uppercase
+    @media (min-width $tablet)
+      bottom 40px
+  .controllers__prev
+    left 30px
+  .controllers__next
+    right 30px

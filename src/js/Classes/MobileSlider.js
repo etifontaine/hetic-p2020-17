@@ -1,13 +1,20 @@
 class MobileSlider {
-  constructor (slider) {
+  constructor (slider, isMobile) {
     console.log('init slider')
     this.sliderElements = slider
+    this.isMobile = isMobile
 
     this.touchstartx = undefined
     this.touchmovex = undefined
     this.movex = undefined
     this.longTouch = undefined
     this.index = 0
+
+    if (this.isMobile) {
+      this.sliderElements.controllers.style.display = 'none'
+    } else {
+      this.initControllers()
+    }
 
     if (navigator.msMaxTouchPoints) {
       this.IESlider()
@@ -93,10 +100,30 @@ class MobileSlider {
       }
     }
     // Move and animate the elements.
+    this.animate()
+  }
+
+  animate () {
     this.sliderElements.holder.className += ' animate'
     this.sliderElements.holder.style.transform = 'translate(-' + this.index * this.slideWidth() + 'px)'
     this.sliderElements.imgSlide.className += ' animate'
     this.sliderElements.imgSlide.style.transform = 'translate(-' + (this.index * this.slideWidth() / 6) + 'px)'
+  }
+
+  initControllers () {
+    const that = this
+    this.sliderElements.prev.addEventListener('click', () => {
+      if (that.index > 0) {
+        that.index--
+        that.animate()
+      }
+    })
+    this.sliderElements.next.addEventListener('click', () => {
+      if (that.index < that.sliderElements.cards.length - 1) {
+        that.index++
+        that.animate()
+      }
+    })
   }
 }
 
