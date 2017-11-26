@@ -23,9 +23,7 @@ const nextButtons = document.querySelectorAll('.next')
 
 nextButtons.forEach(button => {
   new NextButton(button)
-  console.log('hell')
 })
 
-const viz = new Visualization(document.querySelector('.performance__visualization-svg'), 6, ['blabla', 'bloblo', 'blublues', 'blibluer', 'bluro', 'bloeuri'], [0.9, 0.75, 0.65, 0.7, 0.85, 0.6])
+new Visualization(document.querySelector('.performance__visualization-svg'), 6, ['stabilité', 'transmission', 'polyvalence', 'freeride', 'réactivité', 'portance'], [0.9, 0.75, 0.65, 0.90, 0.85, 0.6])
 
-console.log(viz)

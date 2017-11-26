@@ -3,6 +3,7 @@
   flex-direction row
   align-items center
   &__transition
+    pointer-events none
     position absolute
     z-index 90
     top 0
@@ -30,6 +31,7 @@
 
   &__visualization
     position relative
+    z-index 10
     width 40vw
     height 40vw
     margin auto 10vw
@@ -63,7 +65,8 @@
         stroke-width 1px
       polygon
         fill $primary-color-darker
-
+      g
+        pointer-events none
 /**
 * fade in transition
 */

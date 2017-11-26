@@ -5,14 +5,38 @@ class Visualization {
     this.content = content
     this.value = value
 
+    this.mouse = {
+      x: 0,
+      y: 0
+    }
+
     window.addEventListener('resize', () => {
       this.init()
     })
 
+    this.ease = 0.75
+    
     this.init()
     this.drawBackground()
     this.drawPolygon()
     this.drawText()
+
+    this.main_circle.addEventListener('mouseenter', () => {
+      this.isOver = true
+      this.ease = 1.5
+    })
+
+    this.main_circle.addEventListener('mouseleave', () => {
+      this.isOver = false
+      this.ease = 0.75
+    })
+
+    this.main_circle.addEventListener('mousemove', (e) => {
+      this.mouse.x = e.pageX - this.positions.left
+      this.mouse.y = e.pageY - this.positions.top
+    })
+
+    this.render()
   }
 
   init () {
@@ -25,12 +49,21 @@ class Visualization {
   }
 
   drawBackground () {
-    this.container.appendChild(this.createCircle('circle-main', this.width / 2.5))
+    this.main_circle = this.createCircle('circle-main', this.width / 2.5)
+    this.container.appendChild(this.main_circle)
+
+    this.positions = {
+      left: this.container.parentNode.offsetTop,
+      top: this.container.parentNode.offsetTop,
+      width: this.width,
+      height: this.height
+    }
+
     this.container.appendChild(this.createCircle('circle', this.width / 3))
     this.container.appendChild(this.createCircle('circle', this.width / 4))
 
     for (let i = 0; i < this.edgeNumber; i++) {
-      this.container.appendChild(this.createLine(i))    
+      this.container.appendChild(this.createLine(i))
     }
   }
 
@@ -56,6 +89,9 @@ class Visualization {
 
   drawPolygon () {
     this.group = document.createElementNS('http://www.w3.org/2000/svg', 'g')
+    this.group.x = 0
+    this.group.y = 0
+
     this.container.appendChild(this.group)
 
     this.group.appendChild(this.createPolygon('shadow'))
@@ -109,6 +145,23 @@ class Visualization {
     }
 
     return text
+  }
+
+  render () {
+    let translateX = 0
+    let translateY = 0
+
+    if (this.isOver) {
+      translateX = ((this.mouse.x - this.positions.width / 2) / (this.positions.width / 2) * 20)
+      translateY = ((this.mouse.y - this.positions.height / 2) / (this.positions.height / 2) * 20)
+    }
+
+    this.group.x += Math.round(((translateX - this.group.x)) * this.ease) / 10
+    this.group.y += Math.round(((translateY - this.group.y)) * this.ease) / 10
+    // console.log(this.group.x)
+    this.group.style.transform = `translateX(${this.group.x}px) translateY(${this.group.y}px)`    
+
+    window.requestAnimationFrame(this.render.bind(this))
   }
 }
 
