@@ -5,6 +5,7 @@ import Creation from './Classes/Creation'
 import Visualization from './Classes/Visualization'
 import About from './Classes/About'
 import NextButton from './Classes/NextButton'
+import Travel from './Classes/Travel'
 
 window.addEventListener('touchstart', function () {
   window.IS_TOUCHSCREEN = true
@@ -16,6 +17,7 @@ new About(document.querySelector('.section.ski'))
 
 new Creation()
 new Landing()
+new Travel()
 
 const nextButtons = document.querySelectorAll('.next')
 
