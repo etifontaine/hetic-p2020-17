@@ -11,8 +11,6 @@ Thumbs.db
 .todo
 
 # Logs
-logs
-*.log
 npm-debug.log*
 
 # IDE
