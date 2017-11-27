@@ -36,8 +36,8 @@ class NextButton {
     this.button.y = 0
 
     window.addEventListener('resize', () => {
-      this.positions.left = this.video_skip_container.offsetLeft
-      this.positions.top = this.video_skip_container.offsetTop
+      this.positions.left = this.container.offsetLeft
+      this.positions.top = this.container.offsetTop
     })
 
     this.init()
@@ -73,7 +73,7 @@ class NextButton {
 
     this.button.x += Math.round(((translateX - this.button.x)) * this.ease) / 10
     this.button.y += Math.round(((translateY - this.button.y)) * this.ease) / 10
-    console.log(translateY)
+
     this.button.style.transform = `translateX(${this.button.x}px) translateY(${this.button.y}px)`    
 
     this.line.setAttribute('x1', this.button.x + this.positions.width / 2)

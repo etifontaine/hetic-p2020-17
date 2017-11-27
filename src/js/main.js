@@ -26,4 +26,3 @@ nextButtons.forEach(button => {
 })
 
 new Visualization(document.querySelector('.performance__visualization-svg'), 6, ['stabilité', 'transmission', 'polyvalence', 'freeride', 'réactivité', 'portance'], [0.9, 0.75, 0.65, 0.90, 0.85, 0.6])
-

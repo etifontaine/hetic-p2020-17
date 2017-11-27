@@ -12,14 +12,13 @@ class Visualization {
 
     window.addEventListener('resize', () => {
       this.init()
+      this.draw()
     })
 
     this.ease = 0.75
-    
+
     this.init()
-    this.drawBackground()
-    this.drawPolygon()
-    this.drawText()
+    this.draw()
 
     this.main_circle.addEventListener('mouseenter', () => {
       this.isOver = true
@@ -46,6 +45,17 @@ class Visualization {
     this.container.setAttribute('viewBox', '0 0 ' + this.width + ' ' + this.height)
     this.container.setAttribute('width', this.width)
     this.container.setAttribute('height', this.height)
+  }
+
+  draw () {
+    this.container.innerHTML = ''
+    document.querySelectorAll('.performance__visualization-text').forEach(el => {
+      el.remove()
+    })
+    this.init()
+    this.drawBackground()
+    this.drawPolygon()
+    this.drawText()
   }
 
   drawBackground () {
@@ -139,8 +149,7 @@ class Visualization {
 
     if (mX > 0) {
       text.style.textAlign = 'left'
-    }
-    else if (mX < 0) {
+    } else if (mX < 0) {
       text.style.textAlign = 'right'
     }
 
@@ -158,10 +167,12 @@ class Visualization {
 
     this.group.x += Math.round(((translateX - this.group.x)) * this.ease) / 10
     this.group.y += Math.round(((translateY - this.group.y)) * this.ease) / 10
-    // console.log(this.group.x)
+
     this.group.style.transform = `translateX(${this.group.x}px) translateY(${this.group.y}px)`    
 
-    window.requestAnimationFrame(this.render.bind(this))
+    if (!window.IS_TOUCHSCREEN) {
+      window.requestAnimationFrame(this.render.bind(this))
+    }
   }
 }
 
