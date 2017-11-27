@@ -4,3 +4,22 @@ dist
 public
 .idea
 npm-debug*
+# GLOBAL
+.DS_Store
+ehthumbs.db
+Thumbs.db
+.todo
+
+# Logs
+logs
+*.log
+npm-debug.log*
+
+# IDE
+*.sublime-workspace
+*.sublime-project
+.idea/workspace.xml
+nbproject/private/private.properties
+nbproject/private/private.xml
+nbproject/project.properties
+nbproject/project.xml

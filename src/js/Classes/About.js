@@ -12,6 +12,9 @@ class About {
     this.video_fill = container.querySelector('.video__seek-bar-fill')
     this.effect_pause = this.container.querySelector('.video__effect-play')
     this.effect_play = this.container.querySelector('.video__effect-pause')
+    this.init()
+  }
+  init () {
     this.video_play.addEventListener('click', () => {
       this.video_container.classList.add('ski__section-video--visible')
       this.video.play()
