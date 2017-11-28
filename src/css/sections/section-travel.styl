@@ -43,12 +43,38 @@
   width 30%
   padding 25px
   margin-bottom 40px
-  background rgba(195, 195, 195, .8)
+  background rgba(255, 255, 255, .8)
   border-radius 2px
   display flex
-  justify-content center
+  flex-direction column
+  align-items center
   @media (min-width $tablet)
     width 20%
+  .card__title
+    font-size 6vh
+    line-height 1.15
+    font-family $font-extra
+    font-weight 400
+    color $black
+    text-transform capitalize
+    margin 10px 0 10px 0
+  .card__text
+    padding 0
+    margin 10px 0 10px 0
+    font-size 16px
+    line-height 1.6
+    color lighten($black, 10%)
+    flex 1
+    display flex
+    align-items center
+  &--desktop
+    background none
+    padding 0 25px
+    text-align center
+    .card__title
+      color $white
+    .card__text
+      color darken($white, 10%)
 
 .travel__controllers
   .controllers
