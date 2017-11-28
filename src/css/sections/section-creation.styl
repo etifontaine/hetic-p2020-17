@@ -2,6 +2,7 @@
   height 100vh
   padding-top 6vh
   position relative
+  display flex
   .background
     background-color $blue-light
     position: absolute
@@ -12,11 +13,29 @@
     opacity .4
   .content
     display flex
+    width 80vw
+    margin auto 
+    height 70vh
+    @media (min-width: $tablet)
+      width 50vw
     &-left
-      height: 70vh
-      width: 40vw
+      width: 40%
       position relative
       transition .3s $cubic all
+      margin-right: 5%
+      &-reverse 
+        position absolute 
+        top calc(50% - 10px)
+        right 0px
+        z-index 2
+        cursor pointer
+        transition .4s $cubic all
+        transform-origin: 10px 10px;
+        img 
+          width 20px
+          height auto 
+      .active
+        transform rotate(-180deg)
       &:after
         content: "";
         width: 30px;
@@ -43,8 +62,9 @@
           transform: translateX(-800px)
           transition .4s $cubic all
     &-right
-      width 60vw
+      width 50%
       margin-top: 40px
+      margin-left: 5%
       p
         margin: 0
       .right-title
@@ -101,13 +121,13 @@
             height: 15vh
             border: 1px solid $grey-light
             padding: 5px
+            cursor: pointer
           .active
             box-shadow: 0 2px 4px 1px rgba(186,186,186,0.5)
       .price
         margin-top: 40px
         height: 40px
         display flex
-        justify-content: flex-end
         margin-right: 10px
         &-text
           color $blue-sky

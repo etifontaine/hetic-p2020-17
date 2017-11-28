@@ -1,16 +1,13 @@
 section.section.creation
-    .title
-        h2 Personnaliser
-        .title-legend
-            p.title-legend-text Backland
-            .title-legend-line
     .background
     .content
         .content-left
-            .content-left-ski.content-left-ski__planche.visible(style=`background-image:url(${require("./../../assets/ski.png")})`)
-            .content-left-ski.content-left-ski__fixation(style=`background-image:url(${require("./../../assets/th_tracker.png")})`)
-            .content-left-ski.content-left-ski__fixation(style=`background-image:url(${require("./../../assets/sth.png")})`)
-            .content-left-ski.content-left-ski__planche(style=`background-image:url(${require("./../../assets/back.png")})`)
+            .content-left-ski.content-left-ski__planche.visible(style=`background-image:url(${require("./../../assets/img/ski.png")})`)
+            .content-left-ski.content-left-ski__fixation(style=`background-image:url(${require("./../../assets/img/th_tracker.png")})`)
+            .content-left-ski.content-left-ski__fixation(style=`background-image:url(${require("./../../assets/img/sth.png")})`)
+            .content-left-ski.content-left-ski__planche(style=`background-image:url(${require("./../../assets/img/back.png")})`)
+            .content-left-reverse
+                img(src=`${require("./../../assets/img/reverse.png")}`)
         .content-right
             .right-height
                 .right-title
@@ -24,13 +21,13 @@ section.section.creation
                         .select-value(data-value='180') 180 cm
             .right.fixations
                 .right-title
-                    p Bindings
+                    p Fixations
                 .fixations-name
                     p.fixations-name-value Sans fixation
                 .fixations-select
                     .fixation.active(data-name='Sans fixation', data-shortcode='null')
-                    .fixation(data-name='T Tracker MNC 16 L', data-index='0', data-shortcode='th', style=`background-image:url(${require("./../../assets/th_tracker.png")})`)
-                    .fixation(data-name='STH WTR 16', data-index='1', data-shortcode='sth', style=`background-image:url(${require("./../../assets/sth.png")})`)
+                    .fixation(data-name='T Tracker MNC 16 L', data-index='0', data-shortcode='th', style=`background-image:url(${require("./../../assets/img/th_tracker.png")})`)
+                    .fixation(data-name='STH WTR 16', data-index='1', data-shortcode='sth', style=`background-image:url(${require("./../../assets/img/sth.png")})`)
             .right.price
                 p.price-text
                 button.price-btn BUY

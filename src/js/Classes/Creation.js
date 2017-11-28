@@ -5,6 +5,7 @@ export default class Creation {
     this.sizeValues = document.querySelectorAll('.select-value')
     this.inputSize = document.querySelector('.select-title')
     this.skiContainer = document.querySelector('.content-left')
+    this.skiReverse = document.querySelector('.content-left-reverse')
     this.skiFixation = document.querySelectorAll('.content-left-ski__fixation')
     this.fixations = document.querySelectorAll('.fixation')
     this.skiPlanches = document.querySelectorAll('.content-left-ski__planche')
@@ -26,6 +27,9 @@ export default class Creation {
         'th': 379
       }
     }
+    this.click = 0
+
+
     this.toggleSizeList()
     this.selectSize()
     this.selectBinding()
@@ -37,14 +41,17 @@ export default class Creation {
     this.priceText.innerText = `${price} €`
   }
   reverseSki () {
-    ['touch', 'click'].forEach(e => this.skiContainer.addEventListener(e, () => {
+    ['touch', 'click'].forEach(e => this.skiReverse.addEventListener(e, (index) => {
+      this.click++
+      let rotate = 180 * this.click
+      this.skiReverse.style.transform = `rotate(-${rotate}deg)`  
       this.skiPlanches.forEach((ski) => {
         ski.classList.contains('visible') ? ski.classList.remove('visible') : ski.classList.add('visible')
         if (this.skiPlanches[1].style.zIndex === '1') {
           this.skiFixation.forEach(e => {
             e.style.transform = 'translateX(-800px)'
           })
-        }
+        } 
       })
     }))
   }
