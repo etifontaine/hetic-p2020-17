@@ -4,6 +4,7 @@ class Travel {
   constructor () {
     console.log('init travel')
 
+    this.desktopStyle()
     this.initMobileSlider()
   }
 
@@ -23,6 +24,15 @@ class Travel {
     }
 
     new MobileSlider(sliderElements, this.isMobile())
+  }
+
+  desktopStyle () {
+    if (!this.isMobile()) {
+      const cards = document.querySelectorAll('.travel__card')
+      cards.forEach((el) => {
+        el.className += ' travel__card--desktop'
+      })
+    }
   }
 }
 

@@ -65,12 +65,7 @@ class MobileSlider {
     // Get the original touch position.
     this.touchstartx = event.touches[0].pageX
 
-    // The movement gets all janky if there's a transition on the elements.
-    if (document.querySelector('.animate')) {
-      document.querySelectorAll('.animate').forEach((element) => {
-        element.classList.remove('animate')
-      })
-    }
+    this.removeClassAnimate()
   }
 
   move (event) {
@@ -114,16 +109,27 @@ class MobileSlider {
     const that = this
     this.sliderElements.prev.addEventListener('click', () => {
       if (that.index > 0) {
+        that.removeClassAnimate()
         that.index--
         that.animate()
       }
     })
     this.sliderElements.next.addEventListener('click', () => {
       if (that.index < that.sliderElements.cards.length - 1) {
+        that.removeClassAnimate()
         that.index++
         that.animate()
       }
     })
+  }
+
+  removeClassAnimate () {
+    // The movement gets all janky if there's a transition on the elements.
+    if (document.querySelector('.animate')) {
+      document.querySelectorAll('.animate').forEach((element) => {
+        element.classList.remove('animate')
+      })
+    }
   }
 }
 
