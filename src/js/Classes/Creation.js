@@ -28,8 +28,9 @@ export default class Creation {
       }
     }
     this.click = 0
-
-
+    // this.init()
+  }
+  init () {
     this.toggleSizeList()
     this.selectSize()
     this.selectBinding()
@@ -44,14 +45,14 @@ export default class Creation {
     ['touch', 'click'].forEach(e => this.skiReverse.addEventListener(e, (index) => {
       this.click++
       let rotate = 180 * this.click
-      this.skiReverse.style.transform = `rotate(-${rotate}deg)`  
+      this.skiReverse.style.transform = `rotate(-${rotate}deg)`
       this.skiPlanches.forEach((ski) => {
         ski.classList.contains('visible') ? ski.classList.remove('visible') : ski.classList.add('visible')
         if (this.skiPlanches[1].style.zIndex === '1') {
           this.skiFixation.forEach(e => {
             e.style.transform = 'translateX(-800px)'
           })
-        } 
+        }
       })
     }))
   }
