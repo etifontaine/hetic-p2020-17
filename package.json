@@ -9,8 +9,9 @@
     },
     "license": "MIT",
     "dependencies": {
+        "axios": "^0.17.1",
         "offline-plugin": "^4.8.4",
-        "smoothscroll-polyfill": "^0.4.0",
+        "smoothscroll-polyfill": "^0.4.0"
     },
     "devDependencies": {
         "apply": "^0.0.0",
