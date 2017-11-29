@@ -7,6 +7,7 @@ html(lang='fr')
             background: white;
             position: fixed; 
             z-index: 200;
+            transition: all 0.3s cubic-bezier(0.62, 0.28, 0.23, 0.99)
         }
         .loader__container {
             display: flex;
@@ -16,7 +17,7 @@ html(lang='fr')
         }
         .loader__container img {
             position: absolute; 
-            top: calc(50% - 75px);
+            top: calc(50% - 150px);
             right: 0;
             left: 0; 
             bottom: 0;
@@ -25,6 +26,16 @@ html(lang='fr')
         }
         .loader-2 {
             clip-path: inset(100% 0 0 0);
+        }
+        .loader-pourcentage{
+            width: 100%;
+            position:absolute;
+            top: calc(50% + 75px);
+            text-align:center; 
+            font-family: "Oswald", sans-serif;
+            font-weight: bold;
+            font-size:60px;
+            margin-left: 5px;
         }
 
 
