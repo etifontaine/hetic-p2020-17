@@ -11,7 +11,7 @@ class MobileSlider {
     this.index = 0
 
     if (this.isMobile) {
-      this.sliderElements.controllers.style.display = 'none'
+      this.sliderElements.controllers.className += ' travel__controllers--mobile'
     } else {
       this.initControllers()
     }
@@ -66,6 +66,7 @@ class MobileSlider {
     this.touchstartx = event.touches[0].pageX
 
     this.removeClassAnimate()
+    this.removeClassMobile()
   }
 
   move (event) {
@@ -96,9 +97,11 @@ class MobileSlider {
     }
     // Move and animate the elements.
     this.animate()
+    this.hideButtons(this.index)
   }
 
   animate () {
+    this.addClassMobile()
     this.sliderElements.holder.className += ' animate'
     this.sliderElements.holder.style.transform = 'translate(-' + this.index * this.slideWidth() + 'px)'
     this.sliderElements.imgSlide.className += ' animate'
@@ -111,6 +114,7 @@ class MobileSlider {
       if (that.index > 0) {
         that.removeClassAnimate()
         that.index--
+        that.hideButtons(that.index)
         that.animate()
       }
     })
@@ -118,6 +122,7 @@ class MobileSlider {
       if (that.index < that.sliderElements.cards.length - 1) {
         that.removeClassAnimate()
         that.index++
+        that.hideButtons(that.index)
         that.animate()
       }
     })
@@ -129,6 +134,34 @@ class MobileSlider {
       document.querySelectorAll('.animate').forEach((element) => {
         element.classList.remove('animate')
       })
+    }
+  }
+
+  removeClassMobile () {
+    // The movement gets all janky if there's a transition on the elements.
+    if (document.querySelector('.travel__card--mobile')) {
+      document.querySelectorAll('.travel__card--mobile').forEach((element) => {
+        element.classList.remove('travel__card--mobile')
+      })
+    }
+  }
+
+  addClassMobile () {
+    if (this.isMobile) {
+      this.sliderElements.cards.forEach((el) => {
+        el.className += ' travel__card--mobile'
+      })
+    }
+  }
+
+  hideButtons (index) {
+    if (index === 1) {
+      this.sliderElements.controllers.classList.remove('travel__controllers--start')
+      this.sliderElements.controllers.classList.remove('travel__controllers--end')
+    } else if (index === 0) {
+      this.sliderElements.controllers.className += ' travel__controllers--start'
+    } else {
+      this.sliderElements.controllers.className += ' travel__controllers--end'
     }
   }
 }

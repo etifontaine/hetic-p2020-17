@@ -27,10 +27,16 @@ class Travel {
   }
 
   desktopStyle () {
+    const cards = document.querySelectorAll('.travel__card')
     if (!this.isMobile()) {
-      const cards = document.querySelectorAll('.travel__card')
+      const holder = document.querySelector('.travel__cards')
+      holder.className += ' travel__cards--desktop'
       cards.forEach((el) => {
         el.className += ' travel__card--desktop'
+      })
+    } else {
+      cards.forEach((el) => {
+        el.className += ' travel__card--mobile'
       })
     }
   }

@@ -11,8 +11,16 @@ section.section.chris
             .travel__card
                 h3.card__title Et donc ?
                 p.card__text Donec molestie suscipit cursus. Aenean laoreet tincidunt felis a egestas. Curabitur sed molestie sem. Vivamus libero nulla, ornare sed feugiat ut, consequat vel dui.
-        .travel__controllers
-          button.controllers.controllers__prev
-            | Previous
-          button.controllers.controllers__next
-            | Next
+        .travel__controllers.travel__controllers--start
+            svg.controllers.controllers__prev(width='60px', height='60px', viewbox='0 0 18 17', version='1.1', xmlns='http://www.w3.org/2000/svg', xmlns:xlink='http://www.w3.org/1999/xlink')
+                g
+                    polygon.arrow(points='16.3746667 8.33860465 7.76133333 15.3067621 6.904 14.3175671 14.2906667 8.34246869 6.908 2.42790698 7.76 1.43613596')
+                    polygon.arrow-fixed(points='16.3746667 8.33860465 7.76133333 15.3067621 6.904 14.3175671 14.2906667 8.34246869 6.908 2.42790698 7.76 1.43613596')
+            svg.controllers.controllers__next(width='60px', height='60px', viewbox='0 0 18 17', version='1.1', xmlns='http://www.w3.org/2000/svg', xmlns:xlink='http://www.w3.org/1999/xlink')
+                g
+                    polygon.arrow(points='16.3746667 8.33860465 7.76133333 15.3067621 6.904 14.3175671 14.2906667 8.34246869 6.908 2.42790698 7.76 1.43613596')
+                    polygon.arrow-fixed(points='16.3746667 8.33860465 7.76133333 15.3067621 6.904 14.3175671 14.2906667 8.34246869 6.908 2.42790698 7.76 1.43613596')
+            .next
+                svg.next__svg
+                    line.next__svg-line
+                button.next__button skip
