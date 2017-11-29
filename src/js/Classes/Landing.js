@@ -49,17 +49,25 @@ export default class Landing {
       this.height = window.innerHeight
     })
     /**
-     * Update mouse postions on mousemove
+     * We detect if the user is on mobile
      */
     if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-      console.log('is on mobile')
+      /**
+       * We check if user has mobile orientation
+       */
       if (window.DeviceOrientationEvent) {
+        /**
+         * We update the position of the background depending his motions
+         */
         window.addEventListener('deviceorientation', (event) => {
           this.mouse.x = event.alpha * 5
           this.mouse.y = event.beta * 5
         })
       }
     }
+    /**
+     * Update mouse postions on mousemove
+     */
     window.addEventListener('mousemove', (e) => {
       if (e.pageY < this.height && !window.IS_TOUCHSCREEN) {
         this.mouse.x = e.pageX
