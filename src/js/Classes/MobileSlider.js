@@ -1,74 +1,47 @@
-class MobileSlider {
+export default class MobileSlider {
   constructor (slider, isMobile) {
-    console.log('init slider')
     this.sliderElements = slider
     this.isMobile = isMobile
-
     this.touchstartx = undefined
     this.touchmovex = undefined
     this.movex = undefined
     this.longTouch = undefined
     this.index = 0
-
-    if (this.isMobile) {
-      this.sliderElements.controllers.className += ' travel__controllers--mobile'
-    } else {
-      this.initControllers()
-    }
-
-    if (navigator.msMaxTouchPoints) {
-      this.IESlider()
-    } else {
-      this.init()
-    }
+    this.isMobile ? this.sliderElements.controllers.className += ' travel__controllers--mobile' : this.initControllers()
+    this.init()
   }
-
-  IESlider () {
-    this.sliderElements.slider.addClass('travel__container--ms-touch')
-
-    const that = this
-    this.sliderElements.slider.addEventListener('scroll', () => {
-      that.sliderElements.imgSlide.style.transform = 'translate(' + (that.sliderElements.slider.scrollLeft / 6) + 'px)'
-    })
-  }
-
+  /**
+   * Get the size of the user window
+   * @returns {number}
+   */
   slideWidth () {
     return this.sliderElements.slider.clientWidth
   }
-
+  /**
+   * Handle swip on slider
+   */
   init () {
-    this.bindUIEvents()
-  }
-
-  bindUIEvents () {
     this.sliderElements.holder.addEventListener('touchstart', (event) => {
       this.start(event)
     })
-
     this.sliderElements.holder.addEventListener('touchmove', (event) => {
       this.move(event)
     })
-
     this.sliderElements.holder.addEventListener('touchend', (event) => {
       this.end(event)
     })
   }
-
   start (event) {
     // Test for flick.
     this.longTouch = false
-    const that = this
-    setTimeout(function () {
-      that.longTouch = true
+    setTimeout(() => {
+      this.longTouch = true
     }, 250)
-
     // Get the original touch position.
     this.touchstartx = event.touches[0].pageX
-
     this.removeClassAnimate()
     this.removeClassMobile()
   }
-
   move (event) {
     // Continuously return touch position.
     this.touchmovex = event.touches[0].pageX
@@ -77,16 +50,15 @@ class MobileSlider {
     // Defines the speed the images should move at.
     let panx = this.movex / 6
     if (this.movex < (this.slideWidth() * 2)) { // Makes the holder stop moving when theno more content.
-      this.sliderElements.holder.style.transform = 'translate(-' + this.movex + 'px)'
+      this.sliderElements.holder.style.transform = `translate(-${this.movex}px)`
     }
     if (panx < ((this.slideWidth() * 2) / 6)) { // Corrects an edge-case problem wherbackground image moves without the container moving.
-      this.sliderElements.imgSlide.style.transform = 'translate(-' + panx + 'px)'
+      this.sliderElements.imgSlide.style.transform = `translate(-${panx}px)`
     }
   }
-
-  end (event) {
+  end () {
     // Calculate the distance swiped.
-    let absMove = Math.abs(this.index * this.slideWidth() - this.movex)
+    const absMove = Math.abs(this.index * this.slideWidth() - this.movex)
     // Calculate the index. All other calculations are based on the index.
     if (absMove > this.slideWidth() / 2 || this.longTouch === false) {
       if (this.movex > this.index * this.slideWidth() && this.index < 2) {
@@ -99,18 +71,16 @@ class MobileSlider {
     this.animate(this.index)
     this.hideButtons(this.index)
   }
-
   animate (index) {
     this.addClassMobile()
     if (!this.isMobile) {
       this.sliderElements.cards[index].className += ' travel__card--desktop--active'
     }
     this.sliderElements.holder.className += ' animate'
-    this.sliderElements.holder.style.transform = 'translate(-' + this.index * this.slideWidth() + 'px)'
+    this.sliderElements.holder.style.transform = `translate(-${this.index * this.slideWidth()}px)`
     this.sliderElements.imgSlide.className += ' animate'
     this.sliderElements.imgSlide.style.transform = 'translate(-' + (this.index * this.slideWidth() / 6) + 'px)'
   }
-
   initControllers () {
     const that = this
     this.sliderElements.prev.addEventListener('click', () => {
@@ -130,7 +100,6 @@ class MobileSlider {
       }
     })
   }
-
   removeClassAnimate () {
     // The movement gets all janky if there's a transition on the elements.
     if (this.sliderElements.holder.querySelector('.travel__card--desktop--active')) {
@@ -142,7 +111,6 @@ class MobileSlider {
       })
     }
   }
-
   removeClassMobile () {
     // The movement gets all janky if there's a transition on the elements.
     if (document.querySelector('.travel__card--mobile')) {
@@ -151,7 +119,6 @@ class MobileSlider {
       })
     }
   }
-
   addClassMobile () {
     if (this.isMobile) {
       this.sliderElements.cards.forEach((el) => {
@@ -159,7 +126,6 @@ class MobileSlider {
       })
     }
   }
-
   hideButtons (index) {
     if (index === 1) {
       this.sliderElements.controllers.classList.remove('travel__controllers--start')
@@ -171,5 +137,3 @@ class MobileSlider {
     }
   }
 }
-
-export default MobileSlider
