@@ -1,5 +1,5 @@
 .animate
-  transition transform .3s ease-in-out
+  transition transform .55s ease-in-out
 
 .travel__container
   height 100%
@@ -23,9 +23,10 @@
     /* Defines the y and x intervals to snap to when scrolling. */
 
 .travel__mountain
-  height 120%
+  max-height 200%
+  min-width 200%
   position absolute
-  bottom 0
+  top -40%
   will-change transform
   pointer-events none
 
@@ -40,21 +41,26 @@
   justify-content space-around
   align-items flex-end
   will-change transform
+  background linear-gradient(0deg, rgba($white, 100%) 1%, rgba($white, 0%) 100%)
   &--desktop
     align-items center
-    background linear-gradient(0deg, rgba($white, 100%) 1%, rgba($white, 0%) 100%)
+    background linear-gradient(0deg, rgba($white, 100%) 1%, rgba($white, 20%) 100%)
+  @media (min-width $tablet)
+    align-items center
+    background linear-gradient(0deg, rgba($white, 100%) 1%, rgba($white, 20%) 100%)
 
 .travel__card
   width 30%
   padding 25px
-  margin-bottom 40px
+  margin-bottom 90px
   background rgba(255, 255, 255, .8)
   border-radius 2px
   display flex
   flex-direction column
-  align-items center
+  transition all .55s ease-in-out
   @media (min-width $tablet)
     width 20%
+    margin-bottom 0
   .card__title
     font-size 6vh
     line-height 1.15
@@ -71,11 +77,19 @@
     color lighten($black, 10%)
     flex 1
     display flex
-    align-items center
   &--desktop
     background none
     padding 0 25px
-    text-align center
+    transform translate(0, 20px)
+    opacity 0
+    .card__text
+      transition all 1.1s ease-in-out
+      opacity 0
+    &--active
+      transform translate(0, 0)
+      opacity 1
+      .card__text
+        opacity 1
   &--mobile
     will-change transform
     animation swipe 7s 3s ease-in-out infinite
@@ -98,27 +112,18 @@
 //  .controllers__next
 //    right 30px
   .controllers
+    width 60px;
     position absolute
     bottom 0
     cursor pointer
-    overflow visible
-    transition all .3s ease-in-out
-    polygon
-      transition all 0.5s cubic-bezier(.2, 1, .3, 1)
-    &:hover polygon
-      transition all 1s cubic-bezier(.2, 1, .3, 1)
-    &:hover .arrow
-      animation arrow-anim 2.5s cubic-bezier(.2, 1, .3, 1) infinite
-    &:hover .arrow-fixed
-      animation: arrow-fixed-anim 2.5s cubic-bezier(.2, 1, .3, 1) infinite
+    transition all .2s ease-in-out
+    transform translate(0, -50%) scale(.8)
+    &:hover
+      transform translate(0, -50%) scale(1)
     @media (min-width $tablet)
       top 50%
-      transform translate(0, -50%)
   .controllers__prev
     left 10%
-    transform scale(-1, 1)
-    @media (min-width $tablet)
-      transform scale(-1, 1) translate(0, -50%)
   .controllers__next
     right 10%
   .next
@@ -139,31 +144,3 @@
   &--mobile
     .controllers
       display none
-
-@keyframes swipe
-  0%
-    transform translate(0, 0) rotate(0)
-  5%
-    transform translate(-5px, 0) rotate(-1deg)
-  10%
-    transform translate(0, 0) rotate(0)
-  100%
-    transform translate(0, 0) rotate(0)
-
-@keyframes arrow-anim
-  0%
-    opacity 1
-    transform translateX(0)
-  5%
-    transform translateX(-0.1rem)
-  100%
-    transform translateX(1rem)
-    opacity 0
-
-@keyframes arrow-fixed-anim
-  5%
-    opacity 0
-  20%
-    opacity 0.4
-  100%
-    opacity 1

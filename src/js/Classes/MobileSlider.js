@@ -96,12 +96,15 @@ class MobileSlider {
       }
     }
     // Move and animate the elements.
-    this.animate()
+    this.animate(this.index)
     this.hideButtons(this.index)
   }
 
-  animate () {
+  animate (index) {
     this.addClassMobile()
+    if (!this.isMobile) {
+      this.sliderElements.cards[index].className += ' travel__card--desktop--active'
+    }
     this.sliderElements.holder.className += ' animate'
     this.sliderElements.holder.style.transform = 'translate(-' + this.index * this.slideWidth() + 'px)'
     this.sliderElements.imgSlide.className += ' animate'
@@ -115,7 +118,7 @@ class MobileSlider {
         that.removeClassAnimate()
         that.index--
         that.hideButtons(that.index)
-        that.animate()
+        that.animate(that.index)
       }
     })
     this.sliderElements.next.addEventListener('click', () => {
@@ -123,13 +126,16 @@ class MobileSlider {
         that.removeClassAnimate()
         that.index++
         that.hideButtons(that.index)
-        that.animate()
+        that.animate(that.index)
       }
     })
   }
 
   removeClassAnimate () {
     // The movement gets all janky if there's a transition on the elements.
+    if (this.sliderElements.holder.querySelector('.travel__card--desktop--active')) {
+      this.sliderElements.holder.querySelector('.travel__card--desktop--active').classList.remove('travel__card--desktop--active')
+    }
     if (document.querySelector('.animate')) {
       document.querySelectorAll('.animate').forEach((element) => {
         element.classList.remove('animate')

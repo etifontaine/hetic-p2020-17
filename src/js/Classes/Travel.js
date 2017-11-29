@@ -31,8 +31,11 @@ class Travel {
     if (!this.isMobile()) {
       const holder = document.querySelector('.travel__cards')
       holder.className += ' travel__cards--desktop'
-      cards.forEach((el) => {
+      cards.forEach((el, i) => {
         el.className += ' travel__card--desktop'
+        if (i === 0) {
+          el.className += ' travel__card--desktop--active'
+        }
       })
     } else {
       cards.forEach((el) => {
