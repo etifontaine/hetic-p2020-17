@@ -1,9 +1,8 @@
 /**
  * Landing object:
- * - Mountains parrallax
- * - ...
+ * - Mountains parallax
  */
-class Landing {
+export default class Landing {
   constructor () {
     console.log('--init landing')
     this.container = document.querySelector('.landing')
@@ -72,5 +71,3 @@ class Landing {
     window.requestAnimationFrame(this.mountainDraw.bind(this))
   }
 }
-
-export default Landing

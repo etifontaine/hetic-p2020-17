@@ -1,9 +1,7 @@
 class Header {
   constructor (header) {
-    console.log('init header')
     this.header = header
     this.toggle_item = header.querySelector('.header__toggle')
-
     /**
      * call toggleVisibilty on button toggle click
      */
@@ -11,7 +9,6 @@ class Header {
       this.toggleVisibility()
     })
   }
-
   /**
    * toggle nav visibilty on mobile device
    */

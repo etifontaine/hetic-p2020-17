@@ -1,4 +1,8 @@
 class About {
+  /**
+   * This function is used to assign elements of the DOM to variables and start the init() function
+   * @param container
+   */
   constructor (container) {
     this.container = container
     this.header = document.querySelector('.header')
@@ -14,6 +18,10 @@ class About {
     this.effect_play = this.container.querySelector('.video__effect-pause')
     this.init()
   }
+  /**
+   * This function is used to handle all the events on the video.
+   * This handle clicks on the play button, the progress of the playing, the mutation,...
+   */
   init () {
     this.video_play.addEventListener('click', () => {
       this.video_container.classList.add('ski__section-video--visible')
@@ -54,6 +62,10 @@ class About {
       this.video_mute.classList.toggle('video__mute--off')
     })
   }
+  /**
+   * This method is used to update the size of the progress bar of the video
+   * @returns change the css (scaleX) of the element
+   */
   render () {
     if (!this.video.paused) {
       let ratio = this.video.currentTime / this.video.duration
@@ -61,15 +73,24 @@ class About {
       window.requestAnimationFrame(this.render.bind(this))
     }
   }
+  /**
+   * This method is used to format seconds to minutes and seconds
+   * @param {time} the seconds to format.
+   * @returns {html} Returns the html with minutes and seconds formated correctly
+   *
+   * @example
+   * const time = 126
+   * formatTime(time)
+   * // => <span class="minute">2</span><span class="second">06</span>
+   */
   formatTime (time) {
     time = Math.round(time)
     let hours = Math.floor(time / 3600)
     let minutes = Math.floor((time - (hours * 3600)) / 60)
     let seconds = time - (hours * 3600) - (minutes * 60)
-    hours = hours < 10 ? '0' + hours : hours
-    minutes = minutes < 10 ? '0' + minutes : minutes
-    seconds = seconds < 10 ? '0' + seconds : seconds
-    return `<span class="minute">${minutes}</span><span class="second">${seconds}</span>`
+    minutes = minutes < 10 ? `0${minutes}` : minutes
+    seconds = seconds < 10 ? `0${seconds}` : seconds
+    return `<span class="minute">${minutes}</span>:<span class="second">${seconds}</span>`
   }
 }
 
