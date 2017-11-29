@@ -11,9 +11,7 @@ const CleanWebpackPlugin = require('clean-webpack-plugin')
 const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin')
 const SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin')
 const WebpackPwaManifest = require('webpack-pwa-manifest')
-
 const PUBLIC_PATH = 'https://hetic-p2020-17.netlify.com/'
-
 let webpackBase = {
   devtool: config.debug ? 'cheap-module-eval-source-map' : false,
   entry: config.entry,
@@ -63,8 +61,7 @@ let webpackBase = {
           [/node_modules/, /libs/],
         loader:
           'babel-loader'
-      }
-      ,
+      },
       {
         test: /\.styl$/,
         use:
@@ -72,8 +69,7 @@ let webpackBase = {
             fallback: 'style-loader',
             use: ['css-loader', 'postcss-loader', 'stylus-loader']
           })
-      }
-      ,
+      },
       {
         test: /\.css$/,
         use:
@@ -81,7 +77,7 @@ let webpackBase = {
             fallback: 'style-loader',
             use: ['css-loader', 'postcss-loader']
           })
-      }
+      },
     ]
   },
   plugins: [
@@ -113,32 +109,11 @@ let webpackBase = {
       defaultAttribute: 'async'
     }),
     new CopyWebpackPlugin([
-      {from: path.join(libPath, '.htaccess')}
+      {from: path.join(libPath, '.htaccess')},
+      {from: path.join(libPath, 'manifest.json')},
+      {from: path.join(libPath, 'favicon/')}
     ]),
-    new webpack.optimize.ModuleConcatenationPlugin(),
-    new WebpackPwaManifest({
-      name: 'Backland',
-      short_name: 'Backland',
-      description: 'HETIC P2020 Groupe 17!',
-      background_color: '#ffffff',
-      theme_color: '#ffffff',
-      icons: [
-        {
-          src: path.join(libPath, '/assets/img/atomic.jpg'),
-          sizes: [96, 128, 192, 256, 384, 512, 1024]
-        }
-      ]
-    }),
-    new SWPrecacheWebpackPlugin(
-      {
-        cacheId: 'backland',
-        dontCacheBustUrlsMatching: /\.\w{8}\./,
-        filename: 'service-worker.js',
-        minify: true,
-        navigateFallback: PUBLIC_PATH + 'index.html',
-        staticFileGlobsIgnorePatterns: [/\.map$/, /manifest\.json$/]
-      }
-    ),
+    new webpack.optimize.ModuleConcatenationPlugin()
   ],
   devServer:
     {
@@ -152,5 +127,4 @@ let webpackBase = {
     hints: config.debug ? false : 'warning'
   }
 }
-
 module.exports = webpackBase

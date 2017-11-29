@@ -2,16 +2,15 @@ import MobileSlider from './MobileSlider'
 
 class Travel {
   constructor () {
-    console.log('init travel')
-
     this.desktopStyle()
     this.initMobileSlider()
   }
-
   isMobile () {
     return ('ontouchstart' in document.documentElement)
   }
-
+  /**
+   * This function is used to init the slider
+   */
   initMobileSlider () {
     const sliderElements = {
       slider: document.querySelector('.travel__container'),
@@ -22,10 +21,11 @@ class Travel {
       prev: document.querySelector('.controllers__prev'),
       next: document.querySelector('.controllers__next')
     }
-
     new MobileSlider(sliderElements, this.isMobile())
   }
-
+  /**
+   * This method is used to handle the style of the slider of the Travel section in desktop
+   */
   desktopStyle () {
     const cards = document.querySelectorAll('.travel__card')
     if (!this.isMobile()) {

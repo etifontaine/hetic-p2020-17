@@ -1,11 +1,10 @@
-class Router {
+export default class Router {
   constructor () {
     this.url = window.location.href.split('#')[1]
     this.container = document.querySelector('.container')
     this.sections = this.container.querySelectorAll('.section')
     this.next_items = this.container.querySelectorAll('.next__button')
     this.header_items = document.querySelectorAll('.header__item')
-
     /**
      * define current section
      */
@@ -28,9 +27,7 @@ class Router {
       default:
         this.currentIndex = 0
     }
-
     this.changeSection(this.currentIndex)
-
     /**
      * change section on next buttons click
      */
@@ -40,7 +37,6 @@ class Router {
         this.changeSection(index)
       })
     })
-
     /**
      * change section on header nav click
      */
@@ -50,7 +46,6 @@ class Router {
       })
     })
   }
-
   /**
    * update section, fade-out previous section, fade-in new section
    */
@@ -58,20 +53,16 @@ class Router {
     this.sections[this.currentIndex].classList.remove('section--fade-in')
     this.sections[this.currentIndex].classList.add('section--fade-out')
     this.header_items[this.currentIndex].classList.remove('header__item--active')
-
     /**
      * update index
      */
     this.currentIndex = newIndex
-
     this.header_items[this.currentIndex].classList.add('header__item--active')
     this.sections[this.currentIndex].classList.remove('section--fade-out')
     this.sections[this.currentIndex].classList.add('section--fade-in')
     this.container.style.transform = `translateY(-${(this.currentIndex * 100)}vh)`
-
     window.location.href = `#${this.getSectionName(this.currentIndex)}`
   }
-
   /**
    * return section name from index
    */
@@ -92,5 +83,3 @@ class Router {
     }
   }
 }
-
-export default Router

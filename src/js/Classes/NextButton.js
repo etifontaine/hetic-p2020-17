@@ -1,9 +1,19 @@
-class NextButton {
+/**
+ * Next Button on the Bottom of the pages
+ */
+export default class NextButton {
   constructor (container) {
     this.container = container
     this.button = container.querySelector('.next__button')
     this.svg = container.querySelector('.next__svg')
     this.line = container.querySelector('.next__svg-line')
+    this.init()
+    this.render()
+  }
+  /**
+   * Add listeners on the button to detect mouseover on the container
+   */
+  init () {
     this.container.addEventListener('mouseenter', () => {
       this.isOver = true
       this.ease = 1.5
@@ -32,10 +42,6 @@ class NextButton {
       this.positions.left = this.container.offsetLeft
       this.positions.top = this.container.offsetTop
     })
-    this.init()
-    this.render()
-  }
-  init () {
     this.positions = {
       left: this.container.offsetLeft,
       top: this.container.offsetTop,
@@ -47,6 +53,9 @@ class NextButton {
     this.svg.setAttribute('viewBox', `0 0 ${this.positions.width} ${this.positions.height} `)
     this.ease = 0.75
   }
+  /**
+   *  Add css to the element to show the animation
+   */
   render () {
     let translateX = 0
     let translateY = 0
@@ -69,5 +78,3 @@ class NextButton {
     window.requestAnimationFrame(this.render.bind(this))
   }
 }
-
-export default NextButton

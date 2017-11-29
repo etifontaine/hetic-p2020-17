@@ -1,21 +1,16 @@
 /**
  * Landing object:
- * - Mountains parrallax
- * - ...
+ * - Mountains parallax
  */
-class Landing {
+export default class Landing {
   constructor () {
     console.log('--init landing')
     this.container = document.querySelector('.landing')
-
     this.title = this.container.querySelector('.landing__title-text')
     this.title_shadow = this.container.querySelector('.landing__title-shadow')
-
     this.width = window.innerWidth
     this.height = window.innerHeight
-
     this.next = this.container.querySelector('.next__button')
-
     /**
      * mouse object, contain:
      * - position x
@@ -26,7 +21,6 @@ class Landing {
       y: 0
     }
     this.ease = 0.08
-
     /**
      * Create mountain object for each layer, contain:
      * - Positions cx, cy
@@ -45,7 +39,6 @@ class Landing {
       }
       this.mountains.push(obj)
     })
-
     /**
      * update screen size on resize
      */
@@ -53,7 +46,6 @@ class Landing {
       this.width = window.innerWidth
       this.height = window.innerHeight
     })
-
     /**
      * Update mouse postions on mousemove
      */
@@ -63,10 +55,8 @@ class Landing {
         this.mouse.y = e.pageY
       }
     })
-
     this.mountainDraw()
   }
-
   /**
    * Draw mountain layers in animation frame
    */
@@ -74,14 +64,10 @@ class Landing {
     this.mountains.forEach((mountain) => {
       let translateX = Math.round(((this.mouse.x - this.width / 2) / (this.width / 2)) * mountain.delta) * mountain.speed
       let translateY = Math.round(((this.mouse.y - this.height / 2) / (this.height / 2)) * mountain.delta) * mountain.speed
-
       mountain.cx += ((translateX - mountain.cx)) * this.ease
       mountain.cy += ((translateY - mountain.cy)) * this.ease
-      mountain.el.style.transform = `translateX(${mountain.cx}px) translateY(${mountain.cy}px)`
+      mountain.el.style.transform = `translate3d(${mountain.cx}px, ${mountain.cy}px, 0)`
     })
-
     window.requestAnimationFrame(this.mountainDraw.bind(this))
   }
 }
-
-export default Landing
