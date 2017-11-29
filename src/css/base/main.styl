@@ -42,8 +42,8 @@ body
       background-color $blue-sky 
 
 .next
-  height 200px
-  width 200px
+  height 100px
+  width 100px
   border-top-left-radius 50%
   border-top-right-radius 50%
   display flex
@@ -51,13 +51,17 @@ body
   position absolute
   z-index 20
   bottom 0
-  left calc(50% - 100px)
+  left calc(50% - 50px)
   display flex
   justify-content center
   align-items center
   color $black
   stroke $black
   border-color $black
+  @media (min-width $tablet)
+    height 200px
+    width 200px
+    left calc(50% - 100px)
   &:hover
     .next__button
       background $black
