@@ -69,10 +69,12 @@
     height 40px
     padding-top 140px
     flex-shrink 0
-    background rgba($black, 75%)
+    background rgba(#000, 85%)
     transition all .5s $cubic
     overflow hidden
     border-radius 100%
+    @media (min-width $laptop)
+      transition none
     ul
       list-style none
       padding 0
