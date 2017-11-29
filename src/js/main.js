@@ -6,6 +6,7 @@ import Visualization from './Classes/Visualization'
 import About from './Classes/About'
 import NextButton from './Classes/NextButton'
 import Travel from './Classes/Travel'
+import Perf from './perf.json'
 
 window.addEventListener('touchstart', function () {
   window.IS_TOUCHSCREEN = true
@@ -20,4 +21,4 @@ const nextButtons = document.querySelectorAll('.next')
 nextButtons.forEach(button => {
   new NextButton(button)
 })
-new Visualization(document.querySelector('.performance__visualization-svg'), 6, ['stabilité', 'transmission', 'polyvalence', 'freeride', 'réactivité', 'portance'], [0.9, 0.75, 0.65, 0.90, 0.85, 0.6])
+new Visualization(document.querySelector('.performance__visualization-svg'), 6, Perf)

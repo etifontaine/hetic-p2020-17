@@ -1,9 +1,13 @@
 class Visualization {
-  constructor (container, edgeNumber = 6, content = [], value = []) {
+  constructor (container, edgeNumber = 6, data) {
     this.container = container
     this.edgeNumber = edgeNumber
-    this.content = content
-    this.value = value
+    this.content = []
+    this.value = []
+    for (const d in data) {
+      this.content.push(d)
+      this.value.push(data[d])
+    }
     this.mouse = {
       x: 0,
       y: 0
