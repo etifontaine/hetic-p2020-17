@@ -11,9 +11,7 @@ const CleanWebpackPlugin = require('clean-webpack-plugin')
 const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin')
 const SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin')
 const WebpackPwaManifest = require('webpack-pwa-manifest')
-
 const PUBLIC_PATH = 'https://hetic-p2020-17.netlify.com/'
-
 let webpackBase = {
   devtool: config.debug ? 'cheap-module-eval-source-map' : false,
   entry: config.entry,
@@ -63,8 +61,7 @@ let webpackBase = {
           [/node_modules/, /libs/],
         loader:
           'babel-loader'
-      }
-      ,
+      },
       {
         test: /\.styl$/,
         use:
@@ -72,8 +69,7 @@ let webpackBase = {
             fallback: 'style-loader',
             use: ['css-loader', 'postcss-loader', 'stylus-loader']
           })
-      }
-      ,
+      },
       {
         test: /\.css$/,
         use:
@@ -152,5 +148,4 @@ let webpackBase = {
     hints: config.debug ? false : 'warning'
   }
 }
-
 module.exports = webpackBase
