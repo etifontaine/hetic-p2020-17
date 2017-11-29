@@ -4,7 +4,6 @@
  */
 export default class Landing {
   constructor () {
-    console.log('--init landing')
     this.container = document.querySelector('.landing')
     this.title = this.container.querySelector('.landing__title-text')
     this.title_shadow = this.container.querySelector('.landing__title-shadow')
@@ -29,6 +28,9 @@ export default class Landing {
      */
     this.el_mountains = document.querySelectorAll('.landing__background-img img')
     this.mountains = []
+    this.init()
+  }
+  init () {
     this.el_mountains.forEach((mountain, index) => {
       let obj = {
         cx: 0,
@@ -51,6 +53,12 @@ export default class Landing {
      */
     if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
       console.log('is on mobile')
+      if (window.DeviceOrientationEvent) {
+        window.addEventListener('deviceorientation', (event) => {
+          this.mouse.x = event.alpha * 3
+          this.mouse.y = event.beta * 3
+        })
+      }
     }
     window.addEventListener('mousemove', (e) => {
       if (e.pageY < this.height && !window.IS_TOUCHSCREEN) {
