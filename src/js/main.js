@@ -13,10 +13,11 @@ import Customize from './Classes/Customize'
 window.addEventListener('touchstart', function () {
   window.IS_TOUCHSCREEN = true
 })
+
 new Router()
 new Header(document.querySelector('.header'))
 new About(document.querySelector('.section.ski'))
-// new Creation()
+
 new Landing()
 new Travel()
 new Loader()
