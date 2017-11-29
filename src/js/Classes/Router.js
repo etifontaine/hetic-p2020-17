@@ -30,7 +30,8 @@ class Router {
     }
 
     this.changeSection(this.currentIndex)
-
+    
+    
     /**
      * change section on next buttons click
      */
