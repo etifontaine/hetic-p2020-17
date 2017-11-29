@@ -41,7 +41,9 @@ export default class Loader {
     this.loader.style.clipPath = `inset(${100 - this.globalProgress}% 0 0 0)`
     this.loaderPourcentage.innerHTML = this.globalProgress + '%'
     if (this.globalProgress === 100) {
-      this.loader.parentElement.parentElement.style.transform = 'translateY(-100vh)'
+      setTimeout(() => {
+        this.loader.parentNode.parentNode.style.transform = 'translateY(-100vh)'
+      }, 500)
     }
   }
 }
