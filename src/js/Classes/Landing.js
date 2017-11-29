@@ -49,6 +49,9 @@ export default class Landing {
     /**
      * Update mouse postions on mousemove
      */
+    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+      console.log('is on mobile')
+    }
     window.addEventListener('mousemove', (e) => {
       if (e.pageY < this.height && !window.IS_TOUCHSCREEN) {
         this.mouse.x = e.pageX
