@@ -30,6 +30,9 @@ class Router {
     }
 
     this.changeSection(this.currentIndex)
+    setTimeout(() => {
+      this.container.style.transition = 'transform .85s ease-in-out'
+    }, 500)
 
     /**
      * change section on next buttons click

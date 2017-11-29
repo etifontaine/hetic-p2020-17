@@ -1,0 +1,151 @@
+.creation
+  display flex
+  flex-direction column
+  justify-content center
+  align-items center
+
+.creation__title
+  text-align left
+  font-size 6vh
+  line-height 1.15
+  font-family $font-extra
+  font-weight 400
+  color $black
+  text-transform capitalize
+  margin-right auto
+  margin-left 10vw
+  margin-bottom 20px
+
+.creation__price
+  text-align left
+  font-size 30px
+  color lighten($black, 60%)
+  text-transform capitalize
+  margin-right auto
+  margin-left 10vw
+  margin-bottom 10vh
+  @media (min-width $tablet)  
+    margin-bottom 6vh
+
+.creation__ski
+  perspective 400px
+  transform-style preserve-3d
+  &.show-back
+    .creation__ski_item
+      transform rotateX(180deg)
+.creation__ski_item
+  width 100vw
+  height 38px
+  position relative
+  margin 20px 0
+  transition transform .55s $cubic
+  transform-style preserve-3d
+  @media (min-width $tablet)
+    height 58px
+
+  .ski__front, .ski__back
+    width 480px
+    height 38px
+    position absolute
+    top 0
+    left calc((100vw - 480px) / 2)
+    @media (min-width $tablet)
+      width 720px
+      height 58px
+      left calc((100vw - 720px) / 2)    
+
+  .ski__back
+    transform rotateX(180deg)
+
+  .ski__front
+    backface-visibility hidden
+
+  .ski__fix
+    position absolute
+    width 100%
+    height 100%
+    &_item
+      position absolute
+      width auto
+      height 38px
+      top calc(50% - 19px)
+      left calc(50% - 70px)
+      transform translateY(-40px)
+      opacity 0
+      transition transform .45s $cubic, opacity .45s $cubic
+      &.active
+        transform translateY(0)
+        opacity 1
+      @media (min-width $tablet)
+        height 48px
+        top calc(50% - 24px)
+
+
+.creation__display__back
+  display block
+  width auto
+  padding 0 10px
+  height 30px
+  line-height 30px
+  margin-left auto
+  margin-right 10vw
+  text-transform uppercase
+  font-size 14px
+  font-weight 600
+  @media (min-width $tablet)  
+    margin-right 20vw
+
+.creation__fixations
+  width 100%
+  height auto
+  display flex
+  flex-direction row
+  justify-content center
+  align-items center
+  flex-wrap wrap
+  margin-top 20px
+  @media (min-width $tablet)
+    width 40vw
+    justify-content space-around
+  &__title
+    font-size 18px
+    width 100%
+    padding-left 10vw
+    margin-bottom 15px
+    @media (min-width $tablet)
+      padding 0
+  &__item
+    width 80px
+    height 80px
+    display flex
+    border-radius 50%
+    background rgba($black, 3%)
+    margin 0 10px
+    justify-content center
+    align-items center
+    text-transform uppercase
+    font-size 12px
+    transition background .25s $cubic, color .25s $cubic
+    &.active
+      background $primary-color-darker
+      color $white
+    img 
+      width 50px
+
+.creation__more
+  a
+    display block
+    width auto
+    padding 0 50px
+    height 50px
+    line-height 50px
+    background $primary-color-darker
+    text-align center
+    color $white
+    border-radius 3px
+    text-decoration none
+    margin-top 30px
+    @media (min-width $tablet)  
+      margin-top 9vh
+
+

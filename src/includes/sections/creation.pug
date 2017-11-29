@@ -1,40 +1,72 @@
 section.section.creation
-    .background
-    .content
-        .content-left
-            .content-left-ski.content-left-ski__planche.visible(style=`background-image:url(${require("./../../assets/img/ski.png")})`)
-            .content-left-ski.content-left-ski__fixation(style=`background-image:url(${require("./../../assets/img/th_tracker.png")})`)
-            .content-left-ski.content-left-ski__fixation(style=`background-image:url(${require("./../../assets/img/sth.png")})`)
-            .content-left-ski.content-left-ski__planche(style=`background-image:url(${require("./../../assets/img/back.png")})`)
-        .content-right
-            .right-height
-                .right-title
-                    p Taille de ski
-                .select
-                    p.select-title Taille de ski
-                    .select-content
-                        .select-value(data-value='150') 150 cm
-                        .select-value(data-value='160') 160 cm
-                        .select-value(data-value='170') 170 cm
-                        .select-value(data-value='180') 180 cm
-            .right-view
-                .right-title
-                    p Vu
-                .view.view-text
-                    span Face
-                    span Arrière
-                .view-line
-                    .view.view-front
-                    .view.view-back
+    .creation__title
+        |Personnaliser
+    .creation__price
+        |699.00€
+    button.creation__display__back
+        |voir l'arrière
+    .creation__ski
+        .creation__ski_item
+            img.ski__back(src=require('./../../assets/img/ski1-back.png'))        
+            img.ski__front(src=require('./../../assets/img/ski1-front.png'))
+            .ski__fix
+                .ski__fix_item.fix-1
+                img.ski__fix_item.fix-2(src=require('./../../assets/img/fix-1.png')) 
+                img.ski__fix_item.fix-3(src=require('./../../assets/img/fix-2.png')) 
+        .creation__ski_item
+            img.ski__back(src=require('./../../assets/img/ski2-back.png'))
+            img.ski__front(src=require('./../../assets/img/ski2-front.png'))
+            .ski__fix
+                .ski__fix_item.fix-1
+                img.ski__fix_item.fix-2(src=require('./../../assets/img/fix-1.png')) 
+                img.ski__fix_item.fix-3(src=require('./../../assets/img/fix-2.png')) 
+    .creation__fixations
+        .creation__fixations__title Choisissez votre fixation
+        button.creation__fixations__item.active(data-price="699.00")
+            span sans
+        button.creation__fixations__item(data-price="1078.00")
+            img(src=require('./../../assets/img/fix-1.png'))
+        button.creation__fixations__item(data-price="978.00")
+            img(src=require('./../../assets/img/fix-2.png'))     
+    .creation__more
+        a(href="https://shop.atomic.com/fr-fr/products/backland-bent-chetler-aa2684.html", target="_blank")
+            |Acheter
+    //- .background
+    //- .content
+    //-     .content-left
+    //-         .content-left-ski.content-left-ski__planche.visible(style=`background-image:url(${require("./../../assets/img/ski.png")})`)
+    //-         .content-left-ski.content-left-ski__fixation(style=`background-image:url(${require("./../../assets/img/th_tracker.png")})`)
+    //-         .content-left-ski.content-left-ski__fixation(style=`background-image:url(${require("./../../assets/img/sth.png")})`)
+    //-         .content-left-ski.content-left-ski__planche(style=`background-image:url(${require("./../../assets/img/back.png")})`)
+    //-     .content-right
+    //-         .right-height
+    //-             .right-title
+    //-                 p Taille de ski
+    //-             .select
+    //-                 p.select-title Taille de ski
+    //-                 .select-content
+    //-                     .select-value(data-value='150') 150 cm
+    //-                     .select-value(data-value='160') 160 cm
+    //-                     .select-value(data-value='170') 170 cm
+    //-                     .select-value(data-value='180') 180 cm
+    //-         .right-view
+    //-             .right-title
+    //-                 p Vu
+    //-             .view.view-text
+    //-                 span Face
+    //-                 span Arrière
+    //-             .view-line
+    //-                 .view.view-front
+    //-                 .view.view-back
                    
-            .right.fixations
-                .right-title
-                    p Fixations
-                .fixations-name
-                    p.fixations-name-value Sans fixation
-                .fixations-select
-                    .fixation(data-name='T Tracker MNC 16 L', data-index='0', data-shortcode='th', style=`background-image:url(${require("./../../assets/img/th_tracker.png")})`)
-                    .fixation(data-name='STH WTR 16', data-index='1', data-shortcode='sth', style=`background-image:url(${require("./../../assets/img/sth.png")})`)
-            .right.price
-                p.price-text
-                button.price-btn BUY
+    //-         .right.fixations
+    //-             .right-title
+    //-                 p Fixations
+    //-             .fixations-name
+    //-                 p.fixations-name-value Sans fixation
+    //-             .fixations-select
+    //-                 .fixation(data-name='T Tracker MNC 16 L', data-index='0', data-shortcode='th', style=`background-image:url(${require("./../../assets/img/th_tracker.png")})`)
+    //-                 .fixation(data-name='STH WTR 16', data-index='1', data-shortcode='sth', style=`background-image:url(${require("./../../assets/img/sth.png")})`)
+    //-         .right.price
+    //-             p.price-text
+    //-             button.price-btn BUY
